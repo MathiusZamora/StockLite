@@ -20,11 +20,46 @@ namespace StockLite
         {
             dgvUsuarios.AutoGenerateColumns = false;
             dgvUsuarios.Columns.Clear();
-            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "UsuarioId", HeaderText = "ID" });
-            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Nombre Completo" });
-            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "NombreUsuario", HeaderText = "Usuario" });
-            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Rol", HeaderText = "Rol" });
-            dgvUsuarios.Columns.Add(new DataGridViewCheckBoxColumn { DataPropertyName = "Activo", HeaderText = "Activo" });
+
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "UsuarioId",
+                HeaderText = "ID",
+                Name = "UsuarioId",  // ← IMPORTANTE
+                Width = 60
+            });
+
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Nombre",
+                HeaderText = "Nombre Completo",
+                Name = "Nombre",     // ← IMPORTANTE
+                Width = 200
+            });
+
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Usuario",
+                HeaderText = "Usuario",
+                Name = "Usuario",    // ← IMPORTANTE
+                Width = 120
+            });
+
+            dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Rol",
+                HeaderText = "Rol",
+                Name = "Rol",        // ← IMPORTANTE
+                Width = 100
+            });
+
+            dgvUsuarios.Columns.Add(new DataGridViewCheckBoxColumn
+            {
+                DataPropertyName = "Activo",
+                HeaderText = "Activo",
+                Name = "Activo",     // ← IMPORTANTE
+                Width = 70
+            });
         }
 
         private void CargarUsuarios()
@@ -114,24 +149,40 @@ namespace StockLite
 
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
+            // Prevenir errores al hacer clic en encabezados o filas inválidas
+            if (e.RowIndex < 0 || e.RowIndex >= dgvUsuarios.Rows.Count)
+                return;
 
             var row = dgvUsuarios.Rows[e.RowIndex];
-            usuarioEditar = new Usuario
-            {
-                UsuarioId = Convert.ToInt32(row.Cells[0].Value),
-                Nombre = row.Cells[1].Value.ToString()!,
-                NombreUsuario = row.Cells[2].Value.ToString()!,
-                Rol = row.Cells[3].Value.ToString()!,
-                Activo = (bool)row.Cells[4].Value
-            };
 
-            txtNombre.Text = usuarioEditar.Nombre;
-            txtUsuario.Text = usuarioEditar.NombreUsuario;
-            txtClave.Clear(); // No mostramos la clave
-            cmbRol.Text = usuarioEditar.Rol;
-            chkActivo.Checked = usuarioEditar.Activo;
-            btnGuardar.Text = "Actualizar";
+            // Verificar que la fila tenga datos reales (no sea una fila vacía de "nueva fila")
+            if (row.Cells[0].Value == null)
+                return;
+
+            try
+            {
+                usuarioEditar = new Usuario
+                {
+                    UsuarioId = Convert.ToInt32(row.Cells["UsuarioId"].Value),
+                    Nombre = row.Cells["Nombre"].Value?.ToString() ?? "",
+                    NombreUsuario = row.Cells["Usuario"].Value?.ToString() ?? "",
+                    Rol = row.Cells["Rol"].Value?.ToString() ?? "",
+                    Activo = Convert.ToBoolean(row.Cells["Activo"].Value)
+                };
+
+                // Llenar campos
+                txtNombre.Text = usuarioEditar.Nombre;
+                txtUsuario.Text = usuarioEditar.NombreUsuario;
+                txtClave.Clear(); // No mostramos la contraseña
+                cmbRol.Text = usuarioEditar.Rol;
+                chkActivo.Checked = usuarioEditar.Activo;
+                btnGuardar.Text = "Actualizar";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al seleccionar usuario: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

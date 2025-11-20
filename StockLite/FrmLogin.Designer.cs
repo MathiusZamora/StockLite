@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             lblTitulo = new Label();
             lblUsuario = new Label();
             txtUsuario = new TextBox();
@@ -95,9 +96,11 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(149, 12);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(142, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(88, 75);
+            pictureBox1.Size = new Size(102, 88);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
