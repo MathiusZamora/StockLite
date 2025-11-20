@@ -1,0 +1,16 @@
+{
+  "runtimeOptions": {
+    "tfm": "net8.0",
+    "framework": {
+      "name": "Microsoft.NETCore.App",
+      "version": "8.0.0"
+    },
+    "additionalProbingPaths": [
+      "C:\\Users\\Mathius Z\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Mathius Z\\.nuget\\packages"
+    ],
+    "configProperties": {
+      "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
+    }
+  }
+}

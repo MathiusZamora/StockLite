@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Mathius Z\\source\\repos\\StockLite\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\source\\repos\\stocklite\\stocklite\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\source\\repos\\stocklite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\source\\repos\\stocklite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormMainMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\source\\repos\\StockLite\\StockLite\\FormMainMenu.cs",
+              "RelativeDocumentMoniker": "StockLite\\FormMainMenu.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\source\\repos\\StockLite\\StockLite\\FormMainMenu.cs",
+              "RelativeToolTip": "StockLite\\FormMainMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T22:41:15.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormMainMenu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\source\\repos\\StockLite\\StockLite\\FormMainMenu.cs",
+              "RelativeDocumentMoniker": "StockLite\\FormMainMenu.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\source\\repos\\StockLite\\StockLite\\FormMainMenu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "StockLite\\FormMainMenu.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T22:41:12.309Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\source\\repos\\StockLite\\StockLite\\Program.cs",
+              "RelativeDocumentMoniker": "StockLite\\Program.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\source\\repos\\StockLite\\StockLite\\Program.cs",
+              "RelativeToolTip": "StockLite\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T22:38:14.361Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
