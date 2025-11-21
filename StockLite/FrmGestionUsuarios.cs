@@ -53,13 +53,7 @@ namespace StockLite
                 Width = 100
             });
 
-            dgvUsuarios.Columns.Add(new DataGridViewCheckBoxColumn
-            {
-                DataPropertyName = "Activo",
-                HeaderText = "Activo",
-                Name = "Activo",     // ← IMPORTANTE
-                Width = 70
-            });
+        
         }
 
         private void CargarUsuarios()

@@ -9,6 +9,7 @@ namespace StockLite
         private const string CONNECTION_STRING =
             "Server=localhost;Database=StockLiteDB;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
 
+
         public static DataTable Query(string sql, params SqlParameter[] parameters)
         {
             var dt = new DataTable();

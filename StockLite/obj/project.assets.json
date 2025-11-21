@@ -1643,19 +1643,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mathius Z\\.nuget\\packages\\": {}
+    "C:\\Users\\Jader Mendoza\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\StockLite.csproj",
+      "projectUniqueName": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\StockLite.csproj",
       "projectName": "StockLite",
-      "projectPath": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\StockLite.csproj",
-      "packagesPath": "C:\\Users\\Mathius Z\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\obj\\",
+      "projectPath": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\StockLite.csproj",
+      "packagesPath": "C:\\Users\\Jader Mendoza\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Mathius Z\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jader Mendoza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1663,6 +1668,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1680,8 +1686,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "10.0.100"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -1715,7 +1720,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
