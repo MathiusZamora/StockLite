@@ -6,7 +6,7 @@ namespace StockLite
     public partial class FormMainMenu : Form
     {
         private readonly Usuario _usuario;
-        public static Usuario? UsuarioActual { get; private set; } 
+        public static Usuario? UsuarioActual { get; private set; }
 
         public FormMainMenu(Usuario usuario)
         {
@@ -28,7 +28,7 @@ namespace StockLite
             // Opcional: cambiar título
             this.Text = $"StockLite - Bienvenido, {_usuario.Nombre}";
 
-            UsuarioActual = _usuario; 
+            UsuarioActual = _usuario;
         }
 
         // Evento del botón grande de Gestión de Usuarios
@@ -52,7 +52,7 @@ namespace StockLite
         {
             if (sender is Panel p)
             {
-                p.BackColor = Color.FromArgb(41, 121, 255); 
+                p.BackColor = Color.FromArgb(41, 121, 255);
                 p.ForeColor = Color.White;
             }
         }
@@ -61,7 +61,7 @@ namespace StockLite
         {
             if (sender is Panel p)
             {
-                p.BackColor = Color.White;  
+                p.BackColor = Color.White;
                 p.ForeColor = Color.Black;
             }
         }
@@ -85,9 +85,10 @@ namespace StockLite
 
         }
 
+        private void pnlStock_Click(object sender, EventArgs e)
+        {
+            new FrmMovimientoStock().ShowDialog();
 
-
-
-
+        }
     }
 }

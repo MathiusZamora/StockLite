@@ -33,6 +33,9 @@
             pictureBox4 = new PictureBox();
             pnlProductos = new Panel();
             label4 = new Label();
+            pnlStock = new Panel();
+            pictureBox5 = new PictureBox();
+            label5 = new Label();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             pnlGestionUsuarios.SuspendLayout();
@@ -43,6 +46,8 @@
             pnlClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             pnlProductos.SuspendLayout();
+            pnlStock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -238,12 +243,50 @@
             label4.Text = "Productos";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // pnlStock
+            // 
+            pnlStock.BackColor = Color.White;
+            pnlStock.BorderStyle = BorderStyle.FixedSingle;
+            pnlStock.Controls.Add(pictureBox5);
+            pnlStock.Controls.Add(label5);
+            pnlStock.Cursor = Cursors.Hand;
+            pnlStock.Location = new Point(278, 292);
+            pnlStock.Name = "pnlStock";
+            pnlStock.Size = new Size(197, 171);
+            pnlStock.TabIndex = 5;
+            pnlStock.Click += pnlStock_Click;
+            pnlStock.MouseEnter += PanelHover_Enter;
+            pnlStock.MouseLeave += PanelHover_Leave;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.stock;
+            pictureBox5.Location = new Point(38, 15);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(122, 76);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 0;
+            pictureBox5.TabStop = false;
+            pictureBox5.Click += pnlStock_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label5.Location = new Point(-2, 112);
+            label5.Name = "label5";
+            label5.Size = new Size(202, 25);
+            label5.TabIndex = 1;
+            label5.Text = "Movimiento de Stock";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FormMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(788, 518);
+            Controls.Add(pnlStock);
             Controls.Add(pnlProductos);
             Controls.Add(pnlClientes);
             Controls.Add(pnlCategorias);
@@ -274,6 +317,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             pnlProductos.ResumeLayout(false);
             pnlProductos.PerformLayout();
+            pnlStock.ResumeLayout(false);
+            pnlStock.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -298,5 +344,8 @@
         private PictureBox pictureBox4;
         private Panel pnlProductos;
         private Label label4;
+        private Panel pnlStock;
+        private PictureBox pictureBox5;
+        private Label label5;
     }
 }

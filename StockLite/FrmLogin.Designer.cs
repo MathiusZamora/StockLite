@@ -54,7 +54,6 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(176, 23);
             txtUsuario.TabIndex = 3;
-            txtUsuario.Text = "admin";
             // 
             // lblClave
             // 
