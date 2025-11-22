@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|c:\\users\\jader mendoza\\desktop\\proyecto\\stocklite\\stocklite\\services\\movimientostockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\services\\movimientostockservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\frmmovimientostock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|c:\\users\\jader mendoza\\desktop\\proyecto\\stocklite\\stocklite\\frmmovimientostock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\stocklite\\frmmovimientostock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\frmmovimientostock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|c:\\users\\jader mendoza\\desktop\\proyecto\\stocklite\\stocklite\\services\\proyecto-1-reingenieria_proyecto.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\services\\proyecto-1-reingenieria_proyecto.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AC0C7073-B144-40B7-A233-CCF8763E0EAA}|StockLite\\StockLite.csproj|c:\\users\\jader mendoza\\desktop\\proyecto\\stocklite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -142,7 +142,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -178,45 +178,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MovimientoStockService.cs",
               "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\Services\\MovimientoStockService.cs",
               "RelativeDocumentMoniker": "StockLite\\Services\\MovimientoStockService.cs",
               "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\Services\\MovimientoStockService.cs",
               "RelativeToolTip": "StockLite\\Services\\MovimientoStockService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T13:40:17.584Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\Models\\Producto.cs",
-              "RelativeDocumentMoniker": "StockLite\\Models\\Producto.cs",
-              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\Models\\Producto.cs",
-              "RelativeToolTip": "StockLite\\Models\\Producto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T04:44:28.147Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FrmMovimientoStock.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmMovimientoStock.cs",
-              "RelativeDocumentMoniker": "StockLite\\FrmMovimientoStock.cs",
-              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmMovimientoStock.cs [Dise\u00F1o]",
-              "RelativeToolTip": "StockLite\\FrmMovimientoStock.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T14:46:15.393Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "FrmMovimientoStock.cs",
               "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmMovimientoStock.cs",
               "RelativeDocumentMoniker": "StockLite\\FrmMovimientoStock.cs",
@@ -224,12 +199,11 @@
               "RelativeToolTip": "StockLite\\FrmMovimientoStock.cs",
               "ViewState": "AgIAAHEAAAAAAAAAAAAQwIQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T14:50:41.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T14:50:41.36Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FrmGestionUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmGestionUsuarios.cs",
               "RelativeDocumentMoniker": "StockLite\\FrmGestionUsuarios.cs",
@@ -242,7 +216,42 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormMainMenu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FormMainMenu.cs",
+              "RelativeDocumentMoniker": "StockLite\\FormMainMenu.cs",
+              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FormMainMenu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "StockLite\\FormMainMenu.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T03:14:56.749Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "FrmMovimientoStock.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmMovimientoStock.cs",
+              "RelativeDocumentMoniker": "StockLite\\FrmMovimientoStock.cs",
+              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmMovimientoStock.cs [Dise\u00F1o]",
+              "RelativeToolTip": "StockLite\\FrmMovimientoStock.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T14:46:15.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "StockLite\\Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\Models\\Producto.cs",
+              "RelativeToolTip": "StockLite\\Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:44:28.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ProductoService.cs",
               "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\Services\\ProductoService.cs",
               "RelativeDocumentMoniker": "StockLite\\Services\\ProductoService.cs",
@@ -250,36 +259,34 @@
               "RelativeToolTip": "StockLite\\Services\\ProductoService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T04:45:52.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T04:45:52.426Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FrmGestionUsuarios.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmGestionUsuarios.cs",
               "RelativeDocumentMoniker": "StockLite\\FrmGestionUsuarios.cs",
               "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmGestionUsuarios.cs [Dise\u00F1o]",
               "RelativeToolTip": "StockLite\\FrmGestionUsuarios.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T06:02:37.688Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FrmLogin.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmLogin.cs",
-              "RelativeDocumentMoniker": "StockLite\\FrmLogin.cs",
-              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmLogin.cs [Dise\u00F1o]",
-              "RelativeToolTip": "StockLite\\FrmLogin.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T04:46:40.873Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-11-21T06:02:37.688Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "FrmLogin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmLogin.cs",
+              "RelativeDocumentMoniker": "StockLite\\FrmLogin.cs",
+              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmLogin.cs [Design]",
+              "RelativeToolTip": "StockLite\\FrmLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:46:40.873Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Proyecto-1-Reingenieria_Proyecto.sql",
               "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\Services\\Proyecto-1-Reingenieria_Proyecto.sql",
               "RelativeDocumentMoniker": "StockLite\\Services\\Proyecto-1-Reingenieria_Proyecto.sql",
@@ -315,27 +322,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FormMainMenu.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FormMainMenu.cs",
-              "RelativeDocumentMoniker": "StockLite\\FormMainMenu.cs",
-              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FormMainMenu.cs [Dise\u00F1o]",
-              "RelativeToolTip": "StockLite\\FormMainMenu.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T03:14:56.749Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "FrmCliente.cs [Dise\u00F1o]",
+              "Title": "FrmCliente.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmCliente.cs",
               "RelativeDocumentMoniker": "StockLite\\FrmCliente.cs",
-              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmCliente.cs [Dise\u00F1o]",
-              "RelativeToolTip": "StockLite\\FrmCliente.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmCliente.cs [Design]",
+              "RelativeToolTip": "StockLite\\FrmCliente.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T04:46:40.846Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -372,8 +367,7 @@
               "RelativeToolTip": "StockLite\\FrmCliente.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAmwFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T04:32:38.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T04:32:38.821Z"
             },
             {
               "$type": "Document",
@@ -397,8 +391,7 @@
               "RelativeToolTip": "StockLite\\FrmLogin.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAIwDgAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T02:42:25.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T02:42:25.183Z"
             },
             {
               "$type": "Document",
@@ -409,20 +402,19 @@
               "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmProducto.cs [Dise\u00F1o]",
               "RelativeToolTip": "StockLite\\FrmProducto.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T04:46:54.598Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-11-22T04:46:54.598Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "FrmCategoria.cs [Dise\u00F1o]",
+              "Title": "FrmCategoria.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmCategoria.cs",
               "RelativeDocumentMoniker": "StockLite\\FrmCategoria.cs",
-              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmCategoria.cs [Dise\u00F1o]",
-              "RelativeToolTip": "StockLite\\FrmCategoria.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Jader Mendoza\\Desktop\\Proyecto\\StockLite\\StockLite\\FrmCategoria.cs [Design]",
+              "RelativeToolTip": "StockLite\\FrmCategoria.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T05:49:51.689Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -434,8 +426,7 @@
               "RelativeToolTip": "StockLite\\FrmProducto.Designer.cs",
               "ViewState": "AgIAAAIBAAAAAAAAAAAowBwBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-22T05:42:26.827Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-22T05:42:26.827Z"
             },
             {
               "$type": "Document",
@@ -493,8 +484,7 @@
               "RelativeToolTip": "StockLite\\FrmCategoria.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAA7wBIAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T02:52:08.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T02:52:08.043Z"
             },
             {
               "$type": "Document",
@@ -506,8 +496,7 @@
               "RelativeToolTip": "StockLite\\FrmCategoria.Designer.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAD4vy8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T02:49:17.825Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T02:49:17.825Z"
             },
             {
               "$type": "Document",
@@ -531,8 +520,7 @@
               "RelativeToolTip": "StockLite\\FrmCliente.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T04:33:57.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T04:33:57.899Z"
             },
             {
               "$type": "Document",

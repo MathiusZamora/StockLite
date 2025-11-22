@@ -260,10 +260,10 @@
             // 
             // pictureBox5
             // 
-            pictureBox5.Image = Properties.Resources.stock;
-            pictureBox5.Location = new Point(38, 15);
+            pictureBox5.Image = Properties.Resources.iconstock;
+            pictureBox5.Location = new Point(38, 3);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(122, 76);
+            pictureBox5.Size = new Size(122, 94);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 0;
             pictureBox5.TabStop = false;
