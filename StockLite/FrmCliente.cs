@@ -22,7 +22,7 @@ namespace StockLite
             dgvClientes.Columns.Clear();
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "ClienteId", HeaderText = "ID", Width = 70 });
             dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Nombre", Width = 250 });
-            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Contacto", HeaderText = "Contacto", Width = 200 });
+            dgvClientes.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Contacto", HeaderText = "Contacto", Width = 100 });
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.ReadOnly = true;
             dgvClientes.AllowUserToAddRows = false;

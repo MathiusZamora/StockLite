@@ -205,3 +205,4 @@ C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-win
 C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\ref\StockLite.dll
 C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmCategoria.resources
 C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmCliente.resources
+C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProducto.resources

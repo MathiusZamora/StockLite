@@ -78,7 +78,13 @@ namespace StockLite
 
         }
 
-    
+
+        private void pnlProductos_Click(object sender, EventArgs e)
+        {
+            new FrmProducto().ShowDialog();
+
+        }
+
 
 
 

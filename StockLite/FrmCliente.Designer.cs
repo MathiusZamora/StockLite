@@ -45,12 +45,12 @@
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Location = new Point(24, 12);
             dgvClientes.Name = "dgvClientes";
-            dgvClientes.Size = new Size(562, 218);
+            dgvClientes.Size = new Size(463, 218);
             dgvClientes.TabIndex = 0;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(132, 236);
+            txtNombre.Location = new Point(93, 236);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 1;
@@ -58,7 +58,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(63, 239);
+            label1.Location = new Point(24, 239);
             label1.Name = "label1";
             label1.Size = new Size(51, 15);
             label1.TabIndex = 2;
@@ -67,7 +67,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(63, 268);
+            label2.Location = new Point(24, 268);
             label2.Name = "label2";
             label2.Size = new Size(56, 15);
             label2.TabIndex = 4;
@@ -75,7 +75,7 @@
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(132, 265);
+            txtContacto.Location = new Point(93, 265);
             txtContacto.Name = "txtContacto";
             txtContacto.Size = new Size(100, 23);
             txtContacto.TabIndex = 3;
@@ -83,7 +83,7 @@
             // btnNuevo
             // 
             btnNuevo.BackColor = Color.FromArgb(0, 192, 192);
-            btnNuevo.Location = new Point(132, 311);
+            btnNuevo.Location = new Point(82, 311);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(75, 23);
             btnNuevo.TabIndex = 5;
@@ -94,7 +94,7 @@
             // btnGuardar
             // 
             btnGuardar.BackColor = Color.FromArgb(0, 192, 0);
-            btnGuardar.Location = new Point(229, 311);
+            btnGuardar.Location = new Point(180, 311);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(75, 23);
             btnGuardar.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(421, 311);
+            btnCancelar.Location = new Point(372, 311);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 8;
@@ -115,7 +115,7 @@
             // btnEliminar
             // 
             btnEliminar.BackColor = Color.FromArgb(255, 128, 128);
-            btnEliminar.Location = new Point(324, 311);
+            btnEliminar.Location = new Point(278, 311);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 7;
@@ -127,7 +127,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(610, 346);
+            ClientSize = new Size(499, 346);
             Controls.Add(btnCancelar);
             Controls.Add(btnEliminar);
             Controls.Add(btnGuardar);
@@ -137,7 +137,11 @@
             Controls.Add(label1);
             Controls.Add(txtNombre);
             Controls.Add(dgvClientes);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmCliente";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Clientes - StockLite";
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);

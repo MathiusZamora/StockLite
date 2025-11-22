@@ -30,6 +30,9 @@
             pictureBox3 = new PictureBox();
             pnlClientes = new Panel();
             label3 = new Label();
+            pictureBox4 = new PictureBox();
+            pnlProductos = new Panel();
+            label4 = new Label();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             pnlGestionUsuarios.SuspendLayout();
@@ -38,6 +41,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             pnlClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            pnlProductos.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -94,7 +99,7 @@
             pnlGestionUsuarios.Cursor = Cursors.Hand;
             pnlGestionUsuarios.Location = new Point(35, 58);
             pnlGestionUsuarios.Name = "pnlGestionUsuarios";
-            pnlGestionUsuarios.Size = new Size(197, 226);
+            pnlGestionUsuarios.Size = new Size(197, 171);
             pnlGestionUsuarios.TabIndex = 0;
             pnlGestionUsuarios.Click += pnlGestionUsuarios_Click;
             pnlGestionUsuarios.MouseEnter += PanelHover_Enter;
@@ -105,7 +110,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(38, 15);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(122, 131);
+            pictureBox1.Size = new Size(122, 76);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -115,7 +120,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(7, 139);
+            label1.Location = new Point(3, 113);
             label1.Name = "label1";
             label1.Size = new Size(189, 25);
             label1.TabIndex = 1;
@@ -131,7 +136,7 @@
             pnlCategorias.Cursor = Cursors.Hand;
             pnlCategorias.Location = new Point(278, 58);
             pnlCategorias.Name = "pnlCategorias";
-            pnlCategorias.Size = new Size(197, 226);
+            pnlCategorias.Size = new Size(197, 171);
             pnlCategorias.TabIndex = 2;
             pnlCategorias.Click += pnlCategorias_Click;
             pnlCategorias.MouseEnter += PanelHover_Enter;
@@ -142,7 +147,7 @@
             pictureBox2.Image = Properties.Resources.categories;
             pictureBox2.Location = new Point(38, 15);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(122, 131);
+            pictureBox2.Size = new Size(122, 76);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
@@ -152,7 +157,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label2.Location = new Point(54, 139);
+            label2.Location = new Point(54, 113);
             label2.Name = "label2";
             label2.Size = new Size(106, 25);
             label2.TabIndex = 1;
@@ -164,7 +169,7 @@
             pictureBox3.Image = Properties.Resources.newcustomer;
             pictureBox3.Location = new Point(38, 15);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(122, 131);
+            pictureBox3.Size = new Size(122, 76);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
@@ -179,7 +184,7 @@
             pnlClientes.Cursor = Cursors.Hand;
             pnlClientes.Location = new Point(526, 58);
             pnlClientes.Name = "pnlClientes";
-            pnlClientes.Size = new Size(197, 226);
+            pnlClientes.Size = new Size(197, 171);
             pnlClientes.TabIndex = 3;
             pnlClientes.Click += pnlClientes_Click;
             pnlClientes.MouseEnter += PanelHover_Enter;
@@ -189,12 +194,49 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label3.Location = new Point(54, 139);
+            label3.Location = new Point(55, 113);
             label3.Name = "label3";
             label3.Size = new Size(81, 25);
             label3.TabIndex = 1;
             label3.Text = "Clientes";
             label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.item;
+            pictureBox4.Location = new Point(38, 15);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(122, 76);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 0;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pnlProductos_Click;
+            // 
+            // pnlProductos
+            // 
+            pnlProductos.BackColor = Color.White;
+            pnlProductos.BorderStyle = BorderStyle.FixedSingle;
+            pnlProductos.Controls.Add(pictureBox4);
+            pnlProductos.Controls.Add(label4);
+            pnlProductos.Cursor = Cursors.Hand;
+            pnlProductos.Location = new Point(35, 292);
+            pnlProductos.Name = "pnlProductos";
+            pnlProductos.Size = new Size(197, 171);
+            pnlProductos.TabIndex = 4;
+            pnlProductos.Click += pnlProductos_Click;
+            pnlProductos.MouseEnter += PanelHover_Enter;
+            pnlProductos.MouseLeave += PanelHover_Leave;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label4.Location = new Point(47, 112);
+            label4.Name = "label4";
+            label4.Size = new Size(104, 25);
+            label4.TabIndex = 1;
+            label4.Text = "Productos";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormMainMenu
             // 
@@ -202,13 +244,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(788, 518);
+            Controls.Add(pnlProductos);
             Controls.Add(pnlClientes);
             Controls.Add(pnlCategorias);
             Controls.Add(pnlGestionUsuarios);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormMainMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StockLite - Menú Principal";
@@ -226,6 +271,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             pnlClientes.ResumeLayout(false);
             pnlClientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            pnlProductos.ResumeLayout(false);
+            pnlProductos.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -247,5 +295,8 @@
         private PictureBox pictureBox3;
         private Panel pnlClientes;
         private Label label3;
+        private PictureBox pictureBox4;
+        private Panel pnlProductos;
+        private Label label4;
     }
 }

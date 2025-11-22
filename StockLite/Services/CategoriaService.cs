@@ -8,7 +8,6 @@ namespace StockLite.Services
     {
         private const string CS = "Server=MENDOZAII;Database=StockLiteDB;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
 
-        // ← NUEVO: Obtiene el ID del usuario logueado desde el menú principal
         private static int UsuarioActualId => FormMainMenu.UsuarioActual?.UsuarioId ?? 0;
 
         public static List<Categoria> GetAll()

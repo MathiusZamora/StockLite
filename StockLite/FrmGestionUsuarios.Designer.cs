@@ -30,12 +30,10 @@
             btnEliminar = new Button();
             btnGuardar = new Button();
             btnNuevo = new Button();
-            chkActivo = new CheckBox();
             cmbRol = new ComboBox();
             txtClave = new TextBox();
             txtUsuario = new TextBox();
             txtNombre = new TextBox();
-            label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -67,12 +65,10 @@
             groupBox1.Controls.Add(btnEliminar);
             groupBox1.Controls.Add(btnGuardar);
             groupBox1.Controls.Add(btnNuevo);
-            groupBox1.Controls.Add(chkActivo);
             groupBox1.Controls.Add(cmbRol);
             groupBox1.Controls.Add(txtClave);
             groupBox1.Controls.Add(txtUsuario);
             groupBox1.Controls.Add(txtNombre);
-            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
@@ -135,19 +131,6 @@
             btnNuevo.UseVisualStyleBackColor = false;
             btnNuevo.Click += btnNuevo_Click;
             // 
-            // chkActivo
-            // 
-            chkActivo.AutoSize = true;
-            chkActivo.Checked = true;
-            chkActivo.CheckState = CheckState.Checked;
-            chkActivo.Location = new Point(101, 90);
-            chkActivo.Margin = new Padding(2);
-            chkActivo.Name = "chkActivo";
-            chkActivo.Size = new Size(60, 19);
-            chkActivo.TabIndex = 9;
-            chkActivo.Text = "Activo";
-            chkActivo.UseVisualStyleBackColor = true;
-            // 
             // cmbRol
             // 
             cmbRol.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -183,17 +166,6 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(156, 23);
             txtNombre.TabIndex = 5;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(23, 90);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(48, 15);
-            label5.TabIndex = 4;
-            label5.Text = "Estado:";
             // 
             // label4
             // 
@@ -249,6 +221,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(2);
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmGestionUsuarios";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión de Usuarios - StockLite";
@@ -266,12 +239,10 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.ComboBox cmbRol;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

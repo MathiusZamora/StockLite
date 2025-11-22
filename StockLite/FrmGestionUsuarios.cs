@@ -1,7 +1,7 @@
 ﻿using BCrypt.Net;
 using Microsoft.Data.SqlClient;
 using StockLite.Models;
-using StockLite.Services;
+using System.Data;
 
 namespace StockLite
 {
@@ -25,40 +25,44 @@ namespace StockLite
             {
                 DataPropertyName = "UsuarioId",
                 HeaderText = "ID",
-                Name = "UsuarioId",  // ← IMPORTANTE
-                Width = 60
+                Name = "UsuarioId",
+                Width = 60,
+                ReadOnly = true
             });
 
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Nombre",
                 HeaderText = "Nombre Completo",
-                Name = "Nombre",     // ← IMPORTANTE
-                Width = 200
+                Name = "Nombre",
+                Width = 200,
+                ReadOnly = true
             });
 
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Usuario",
                 HeaderText = "Usuario",
-                Name = "Usuario",    // ← IMPORTANTE
-                Width = 120
+                Name = "Usuario",
+                Width = 120,
+                ReadOnly = true
             });
 
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Rol",
                 HeaderText = "Rol",
-                Name = "Rol",        // ← IMPORTANTE
-                Width = 100
+                Name = "Rol",
+                Width = 100,
+                ReadOnly = true
             });
 
-        
+            // NO agregamos columna Activo → nunca aparece
         }
 
         private void CargarUsuarios()
         {
-            const string sql = "SELECT UsuarioId, Nombre, Usuario, Rol, Activo FROM dbo.Usuario ORDER BY Nombre";
+            const string sql = "SELECT UsuarioId, Nombre, Usuario, Rol FROM dbo.Usuario WHERE Activo = 1 ORDER BY Nombre";
             var dt = Db.Query(sql);
             dgvUsuarios.DataSource = dt;
         }
@@ -69,15 +73,11 @@ namespace StockLite
             txtUsuario.Clear();
             txtClave.Clear();
             cmbRol.SelectedIndex = -1;
-            chkActivo.Checked = true;
             usuarioEditar = null;
             btnGuardar.Text = "Guardar";
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
+        private void btnNuevo_Click(object sender, EventArgs e) => LimpiarCampos();
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -94,38 +94,32 @@ namespace StockLite
 
             if (usuarioEditar == null)
             {
-                // INSERT
                 const string sql = """
                     INSERT INTO dbo.Usuario (Nombre, Usuario, ClaveHash, Rol, Activo)
-                    VALUES (@nombre, @usuario, @hash, @rol, @activo)
+                    VALUES (@nombre, @usuario, @hash, @rol, 1)
                     """;
-
                 Db.Exec(sql,
                     new SqlParameter("@nombre", txtNombre.Text.Trim()),
                     new SqlParameter("@usuario", txtUsuario.Text.Trim()),
                     new SqlParameter("@hash", hash),
-                    new SqlParameter("@rol", cmbRol.Text),
-                    new SqlParameter("@activo", chkActivo.Checked)
+                    new SqlParameter("@rol", cmbRol.Text)
                 );
             }
             else
             {
-                // UPDATE
+                // UPDATE → no tocamos Activo
                 const string sql = """
-                    UPDATE dbo.Usuario 
-                    SET Nombre = @nombre, Usuario = @usuario, Rol = @rol, Activo = @activo
+                    UPDATE dbo.Usuario
+                    SET Nombre = @nombre, Usuario = @usuario, Rol = @rol
                     WHERE UsuarioId = @id
                     """;
-
                 Db.Exec(sql,
                     new SqlParameter("@nombre", txtNombre.Text.Trim()),
                     new SqlParameter("@usuario", txtUsuario.Text.Trim()),
                     new SqlParameter("@rol", cmbRol.Text),
-                    new SqlParameter("@activo", chkActivo.Checked),
                     new SqlParameter("@id", usuarioEditar.UsuarioId)
                 );
 
-                // Si cambió la contraseña
                 if (!string.IsNullOrWhiteSpace(txtClave.Text))
                 {
                     const string sqlPass = "UPDATE dbo.Usuario SET ClaveHash = @hash WHERE UsuarioId = @id";
@@ -143,40 +137,24 @@ namespace StockLite
 
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Prevenir errores al hacer clic en encabezados o filas inválidas
-            if (e.RowIndex < 0 || e.RowIndex >= dgvUsuarios.Rows.Count)
-                return;
+            if (e.RowIndex < 0) return;
 
             var row = dgvUsuarios.Rows[e.RowIndex];
+            if (row.Cells["UsuarioId"].Value == null) return;
 
-            // Verificar que la fila tenga datos reales (no sea una fila vacía de "nueva fila")
-            if (row.Cells[0].Value == null)
-                return;
-
-            try
+            usuarioEditar = new Usuario
             {
-                usuarioEditar = new Usuario
-                {
-                    UsuarioId = Convert.ToInt32(row.Cells["UsuarioId"].Value),
-                    Nombre = row.Cells["Nombre"].Value?.ToString() ?? "",
-                    NombreUsuario = row.Cells["Usuario"].Value?.ToString() ?? "",
-                    Rol = row.Cells["Rol"].Value?.ToString() ?? "",
-                    Activo = Convert.ToBoolean(row.Cells["Activo"].Value)
-                };
+                UsuarioId = Convert.ToInt32(row.Cells["UsuarioId"].Value),
+                Nombre = row.Cells["Nombre"].Value?.ToString() ?? "",
+                NombreUsuario = row.Cells["Usuario"].Value?.ToString() ?? "",
+                Rol = row.Cells["Rol"].Value?.ToString() ?? ""
+            };
 
-                // Llenar campos
-                txtNombre.Text = usuarioEditar.Nombre;
-                txtUsuario.Text = usuarioEditar.NombreUsuario;
-                txtClave.Clear(); // No mostramos la contraseña
-                cmbRol.Text = usuarioEditar.Rol;
-                chkActivo.Checked = usuarioEditar.Activo;
-                btnGuardar.Text = "Actualizar";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al seleccionar usuario: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            txtNombre.Text = usuarioEditar.Nombre;
+            txtUsuario.Text = usuarioEditar.NombreUsuario;
+            txtClave.Clear();
+            cmbRol.Text = usuarioEditar.Rol;
+            btnGuardar.Text = "Actualizar";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -187,20 +165,18 @@ namespace StockLite
                 return;
             }
 
-            if (MessageBox.Show($"¿Eliminar permanentemente al usuario '{usuarioEditar.NombreUsuario}'?",
+            if (MessageBox.Show($"¿Desactivar al usuario '{usuarioEditar.NombreUsuario}'?\nYa no podrá iniciar sesión.",
                 "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                const string sql = "DELETE FROM dbo.Usuario WHERE UsuarioId = @id";
+                const string sql = "UPDATE dbo.Usuario SET Activo = 0 WHERE UsuarioId = @id";
                 Db.Exec(sql, new SqlParameter("@id", usuarioEditar.UsuarioId));
-                MessageBox.Show("Usuario eliminado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MessageBox.Show("Usuario desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarUsuarios();
                 LimpiarCampos();
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
+        private void btnCancelar_Click(object sender, EventArgs e) => LimpiarCampos();
     }
 }
