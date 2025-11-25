@@ -13,6 +13,9 @@
     <Compile Update="FrmGestionUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmHistorialStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,6 +23,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FrmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmReportes.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

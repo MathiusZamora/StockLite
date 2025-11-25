@@ -48,6 +48,8 @@
             lblTituloSalida = new Label();
             cmbCliente = new ComboBox();
             lblCliente = new Label();
+            cmbProveedor = new ComboBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)nudCantidadE).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidadS).BeginInit();
             SuspendLayout();
@@ -94,7 +96,7 @@
             // lblCantidadE
             // 
             lblCantidadE.AutoSize = true;
-            lblCantidadE.Location = new Point(69, 138);
+            lblCantidadE.Location = new Point(68, 184);
             lblCantidadE.Name = "lblCantidadE";
             lblCantidadE.Size = new Size(55, 15);
             lblCantidadE.TabIndex = 4;
@@ -102,7 +104,7 @@
             // 
             // nudCantidadE
             // 
-            nudCantidadE.Location = new Point(147, 130);
+            nudCantidadE.Location = new Point(146, 176);
             nudCantidadE.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             nudCantidadE.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudCantidadE.Name = "nudCantidadE";
@@ -113,7 +115,7 @@
             // lblObsE
             // 
             lblObsE.AutoSize = true;
-            lblObsE.Location = new Point(70, 187);
+            lblObsE.Location = new Point(67, 242);
             lblObsE.Name = "lblObsE";
             lblObsE.Size = new Size(73, 15);
             lblObsE.TabIndex = 6;
@@ -121,7 +123,7 @@
             // 
             // txtObsE
             // 
-            txtObsE.Location = new Point(149, 184);
+            txtObsE.Location = new Point(146, 234);
             txtObsE.Multiline = true;
             txtObsE.Name = "txtObsE";
             txtObsE.ScrollBars = ScrollBars.Vertical;
@@ -131,18 +133,17 @@
             // btnEntrada
             // 
             btnEntrada.BackColor = Color.FromArgb(0, 192, 0);
-            btnEntrada.Location = new Point(70, 284);
+            btnEntrada.Location = new Point(68, 295);
             btnEntrada.Name = "btnEntrada";
             btnEntrada.Size = new Size(137, 23);
             btnEntrada.TabIndex = 8;
             btnEntrada.Text = "Registrar Entrada";
             btnEntrada.UseVisualStyleBackColor = false;
-            btnEntrada.Click += btnEntrada_Click;
             // 
             // btnSalida
             // 
             btnSalida.BackColor = Color.FromArgb(255, 128, 128);
-            btnSalida.Location = new Point(460, 284);
+            btnSalida.Location = new Point(460, 295);
             btnSalida.Name = "btnSalida";
             btnSalida.Size = new Size(137, 23);
             btnSalida.TabIndex = 17;
@@ -162,7 +163,7 @@
             // lblObsS
             // 
             lblObsS.AutoSize = true;
-            lblObsS.Location = new Point(459, 233);
+            lblObsS.Location = new Point(459, 242);
             lblObsS.Name = "lblObsS";
             lblObsS.Size = new Size(73, 15);
             lblObsS.TabIndex = 15;
@@ -245,11 +246,32 @@
             lblCliente.TabIndex = 18;
             lblCliente.Text = "Cliente";
             // 
+            // cmbProveedor
+            // 
+            cmbProveedor.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbProveedor.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbProveedor.FormattingEnabled = true;
+            cmbProveedor.Location = new Point(146, 130);
+            cmbProveedor.Name = "cmbProveedor";
+            cmbProveedor.Size = new Size(121, 23);
+            cmbProveedor.TabIndex = 21;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(68, 138);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 15);
+            label1.TabIndex = 20;
+            label1.Text = "Proveedor";
+            // 
             // FrmMovimientoStock
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(754, 400);
+            Controls.Add(cmbProveedor);
+            Controls.Add(label1);
             Controls.Add(cmbCliente);
             Controls.Add(lblCliente);
             Controls.Add(btnSalida);
@@ -270,7 +292,9 @@
             Controls.Add(cmbProductoEntrada);
             Controls.Add(lblProductoE);
             Controls.Add(lblTituloEntrada);
+            MaximizeBox = false;
             Name = "FrmMovimientoStock";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Movimiento de Stock - StockLite";
             ((System.ComponentModel.ISupportInitialize)nudCantidadE).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudCantidadS).EndInit();
@@ -300,5 +324,7 @@
         private Label lblTituloSalida;
         private ComboBox cmbCliente;
         private Label lblCliente;
+        private ComboBox cmbProveedor;
+        private Label label1;
     }
 }

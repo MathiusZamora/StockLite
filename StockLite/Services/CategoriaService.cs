@@ -6,7 +6,7 @@ namespace StockLite.Services
 {
     public static class CategoriaService
     {
-        private const string CS = "Server=MENDOZAII;Database=StockLiteDB;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
+        private const string CS = "Server=localhost;Database=StockLiteDB;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
 
         private static int UsuarioActualId => FormMainMenu.UsuarioActual?.UsuarioId ?? 0;
 

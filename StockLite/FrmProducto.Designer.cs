@@ -48,13 +48,17 @@
             btnLimpiarBusqueda = new Button();
             label7 = new Label();
             cmbCategoriaFiltro = new ComboBox();
+            cmbProveedor = new ComboBox();
+            label8 = new Label();
+            cmbProveedorFiltro = new ComboBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             SuspendLayout();
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(337, 400);
+            label5.Location = new Point(297, 400);
             label5.Name = "label5";
             label5.Size = new Size(58, 15);
             label5.TabIndex = 30;
@@ -107,7 +111,7 @@
             // 
             cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategoria.FormattingEnabled = true;
-            cmbCategoria.Location = new Point(398, 397);
+            cmbCategoria.Location = new Point(358, 397);
             cmbCategoria.Name = "cmbCategoria";
             cmbCategoria.Size = new Size(100, 23);
             cmbCategoria.TabIndex = 25;
@@ -115,7 +119,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(665, 400);
+            label4.Location = new Point(761, 400);
             label4.Name = "label4";
             label4.Size = new Size(36, 15);
             label4.TabIndex = 24;
@@ -124,7 +128,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(518, 400);
+            label3.Location = new Point(654, 400);
             label3.Name = "label3";
             label3.Size = new Size(38, 15);
             label3.TabIndex = 23;
@@ -133,7 +137,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(172, 400);
+            label2.Location = new Point(147, 400);
             label2.Name = "label2";
             label2.Size = new Size(51, 15);
             label2.TabIndex = 22;
@@ -142,7 +146,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 400);
+            label1.Location = new Point(4, 400);
             label1.Name = "label1";
             label1.Size = new Size(46, 15);
             label1.TabIndex = 21;
@@ -150,30 +154,30 @@
             // 
             // txtVenta
             // 
-            txtVenta.Location = new Point(705, 397);
+            txtVenta.Location = new Point(801, 397);
             txtVenta.Name = "txtVenta";
-            txtVenta.Size = new Size(100, 23);
+            txtVenta.Size = new Size(70, 23);
             txtVenta.TabIndex = 20;
             // 
             // txtCosto
             // 
-            txtCosto.Location = new Point(559, 397);
+            txtCosto.Location = new Point(695, 397);
             txtCosto.Name = "txtCosto";
-            txtCosto.Size = new Size(100, 23);
+            txtCosto.Size = new Size(60, 23);
             txtCosto.TabIndex = 19;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(225, 397);
+            txtNombre.Location = new Point(200, 397);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(100, 23);
+            txtNombre.Size = new Size(88, 23);
             txtNombre.TabIndex = 18;
             // 
             // txtCodigo
             // 
-            txtCodigo.Location = new Point(60, 397);
+            txtCodigo.Location = new Point(52, 397);
             txtCodigo.Name = "txtCodigo";
-            txtCodigo.Size = new Size(100, 23);
+            txtCodigo.Size = new Size(89, 23);
             txtCodigo.TabIndex = 17;
             // 
             // dgvProductos
@@ -181,13 +185,13 @@
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProductos.Location = new Point(12, 32);
             dgvProductos.Name = "dgvProductos";
-            dgvProductos.Size = new Size(800, 359);
+            dgvProductos.Size = new Size(859, 359);
             dgvProductos.TabIndex = 16;
             dgvProductos.CellClick += dgvProductos_CellClick;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(200, 4);
+            txtBuscar.Location = new Point(173, 3);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(100, 23);
             txtBuscar.TabIndex = 31;
@@ -196,7 +200,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(36, 6);
+            label6.Location = new Point(9, 5);
             label6.Name = "label6";
             label6.Size = new Size(158, 15);
             label6.TabIndex = 32;
@@ -204,7 +208,7 @@
             // 
             // btnLimpiarBusqueda
             // 
-            btnLimpiarBusqueda.Location = new Point(655, 4);
+            btnLimpiarBusqueda.Location = new Point(800, 5);
             btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
             btnLimpiarBusqueda.Size = new Size(65, 23);
             btnLimpiarBusqueda.TabIndex = 33;
@@ -215,7 +219,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(313, 6);
+            label7.Location = new Point(290, 6);
             label7.Name = "label7";
             label7.Size = new Size(115, 15);
             label7.TabIndex = 34;
@@ -225,18 +229,59 @@
             // 
             cmbCategoriaFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategoriaFiltro.FormattingEnabled = true;
-            cmbCategoriaFiltro.Location = new Point(435, 4);
+            cmbCategoriaFiltro.Location = new Point(406, 5);
             cmbCategoriaFiltro.Name = "cmbCategoriaFiltro";
             cmbCategoriaFiltro.Size = new Size(121, 23);
             cmbCategoriaFiltro.TabIndex = 35;
             cmbCategoriaFiltro.SelectionChangeCommitted += cmbCategoriaFiltro_SelectionChangeCommitted;
             cmbCategoriaFiltro.TextChanged += txtBuscar_TextChanged;
             // 
+            // cmbProveedor
+            // 
+            cmbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProveedor.FormattingEnabled = true;
+            cmbProveedor.Location = new Point(548, 397);
+            cmbProveedor.Name = "cmbProveedor";
+            cmbProveedor.Size = new Size(100, 23);
+            cmbProveedor.TabIndex = 36;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(481, 400);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 15);
+            label8.TabIndex = 37;
+            label8.Text = "Proveedor";
+            // 
+            // cmbProveedorFiltro
+            // 
+            cmbProveedorFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProveedorFiltro.FormattingEnabled = true;
+            cmbProveedorFiltro.Location = new Point(669, 5);
+            cmbProveedorFiltro.Name = "cmbProveedorFiltro";
+            cmbProveedorFiltro.Size = new Size(121, 23);
+            cmbProveedorFiltro.TabIndex = 39;
+            cmbProveedorFiltro.TextChanged += txtBuscar_TextChanged;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(538, 7);
+            label9.Name = "label9";
+            label9.Size = new Size(126, 15);
+            label9.TabIndex = 38;
+            label9.Text = "Filtrar por Proveedores";
+            // 
             // FrmProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(824, 461);
+            ClientSize = new Size(877, 461);
+            Controls.Add(cmbProveedorFiltro);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(cmbProveedor);
             Controls.Add(cmbCategoriaFiltro);
             Controls.Add(label7);
             Controls.Add(btnLimpiarBusqueda);
@@ -290,5 +335,9 @@
         private Button btnLimpiarBusqueda;
         private Label label7;
         private ComboBox cmbCategoriaFiltro;
+        private ComboBox cmbProveedor;
+        private Label label8;
+        private ComboBox cmbProveedorFiltro;
+        private Label label9;
     }
 }

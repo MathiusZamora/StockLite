@@ -80,6 +80,23 @@ CREATE TABLE dbo.DetalleMovimientoStock(
   Activo BIT NOT NULL Default 1
 );
 
+CREATE TABLE Proveedor (
+    ProveedorId INT IDENTITY PRIMARY KEY,
+    Nombre VARCHAR(150) NOT NULL,
+    Contacto VARCHAR(100),
+    Telefono VARCHAR(20),
+    Email VARCHAR(100),
+    Activo BIT DEFAULT 1,
+    CreadoPor INT,
+    FechaCreacion DATETIME2 DEFAULT SYSDATETIME()
+);
+
+
+ALTER TABLE Producto ADD ProveedorId INT NULL 
+    FOREIGN KEY REFERENCES Proveedor(ProveedorId);
+
+
+
+
 CREATE INDEX IX_Mov_Prod ON dbo.DetalleMovimientoStock(ProductoId, MovimientoId DESC);
 GO
-

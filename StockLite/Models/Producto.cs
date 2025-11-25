@@ -17,5 +17,8 @@ namespace StockLite.Models
         public bool Activo { get; set; } = true;
 
         public string CodigoNombre => $"{Codigo} - {Nombre}";
+
+        public int? ProveedorId { get; set; }
+        public string? ProveedorNombre { get; set; } 
     }
 }
