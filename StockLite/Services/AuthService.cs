@@ -14,9 +14,8 @@ namespace StockLite.Services
         public static Usuario? Login(string usuario, string clave)
         {
             const string sql = """
-                SELECT UsuarioId, Nombre, Usuario, Rol, Activo, ClaveHash 
-                FROM dbo.Usuario 
-                WHERE Usuario = @usuario AND Activo = 1
+                EXEC ValidarLogin
+                @usuario = @usuario
                 """;
 
             var dt = Db.Query(sql, new SqlParameter("@usuario", usuario));
@@ -41,7 +40,7 @@ namespace StockLite.Services
 
         public static void CrearAdminSiNoExiste()
         {
-            const string sqlCheck = "SELECT COUNT(*) FROM dbo.Usuario WHERE Usuario = 'admin'";
+            const string sqlCheck = "EXEC CheckAdmin;";
             var existe = (int?)Db.Scalar(sqlCheck) ?? 0;
 
             if (existe > 0) return;
@@ -49,8 +48,8 @@ namespace StockLite.Services
             string hash = BCrypt.Net.BCrypt.HashPassword("admin123");
 
             const string sqlInsert = """
-                INSERT INTO dbo.Usuario (Nombre, Usuario, ClaveHash, Rol, Activo)
-                VALUES ('Administrador del Sistema', 'admin', @hash, 'Administrador', 1)
+                EXEC CrearAdmin
+                @hash = @hash
                 """;
 
             Db.Exec(sqlInsert, new SqlParameter("@hash", hash));

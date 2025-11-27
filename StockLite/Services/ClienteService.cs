@@ -13,7 +13,7 @@ namespace StockLite.Services
         {
             var lista = new List<Cliente>();
             using var cn = new SqlConnection(CS);
-            using var cmd = new SqlCommand("SELECT ClienteId, Nombre, Contacto, Activo FROM dbo.Cliente WHERE Activo = 1 ORDER BY Nombre", cn);
+            using var cmd = new SqlCommand("EXEC ListarCliente;", cn);
             cn.Open();
             using var dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -33,8 +33,10 @@ namespace StockLite.Services
         {
             using var cn = new SqlConnection(CS);
             using var cmd = new SqlCommand("""
-                INSERT INTO dbo.Cliente (Nombre, Contacto, CreadoPor, ModificadoPor)
-                VALUES (@nombre, @contacto, @user, @user)
+                EXEC InsertarCliente 
+                @nombre = @nombre,
+                @contacto = @contacto, 
+                @user = @user
                 """, cn);
 
             cmd.Parameters.Add("@nombre", SqlDbType.VarChar, 100).Value = nombre.Trim();
@@ -49,12 +51,11 @@ namespace StockLite.Services
         {
             using var cn = new SqlConnection(CS);
             using var cmd = new SqlCommand("""
-                UPDATE dbo.Cliente 
-                SET Nombre = @nombre, 
-                    Contacto = @contacto, 
-                    ModificadoPor = @user, 
-                    FechaModificacion = SYSUTCDATETIME()
-                WHERE ClienteId = @id
+                EXEC InsertarCliente 
+                @id = @id,
+                @nombre = @nombre,
+                @contacto = @contacto, 
+                @user = @user
                 """, cn);
 
             cmd.Parameters.Add("@nombre", SqlDbType.VarChar, 100).Value = nombre.Trim();
@@ -69,7 +70,7 @@ namespace StockLite.Services
         public static void Delete(int id)
         {
             using var cn = new SqlConnection(CS);
-            using var cmd = new SqlCommand("UPDATE dbo.Cliente SET Activo = 0 WHERE ClienteId = @id", cn);
+            using var cmd = new SqlCommand("EXEC AnularCategoria @id", cn);
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cn.Open();
             cmd.ExecuteNonQuery();

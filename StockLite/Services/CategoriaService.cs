@@ -14,7 +14,7 @@ namespace StockLite.Services
         {
             var lista = new List<Categoria>();
             using var cn = new SqlConnection(CS);
-            using var cmd = new SqlCommand("SELECT CategoriaId, Nombre, Activo FROM dbo.Categoria WHERE Activo = 1 ORDER BY Nombre", cn);
+            using var cmd = new SqlCommand("EXEC ListarCategoria;", cn);
             cn.Open();
             using var dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -34,8 +34,9 @@ namespace StockLite.Services
             int userId = creadoPor ?? UsuarioActualId;
             using var cn = new SqlConnection(CS);
             using var cmd = new SqlCommand("""
-                INSERT INTO dbo.Categoria (Nombre, CreadoPor, ModificadoPor)
-                VALUES (@nombre, @userId, @userId)
+                EXEC InsertarCategoria 
+                @userId = @userId, 
+                @nombre = @nombre
                 """, cn);
             cmd.Parameters.AddWithValue("@nombre", nombre);
             cmd.Parameters.AddWithValue("@userId", userId > 0 ? userId : (object)DBNull.Value);
@@ -48,11 +49,10 @@ namespace StockLite.Services
             int userId = modificadoPor ?? UsuarioActualId;
             using var cn = new SqlConnection(CS);
             using var cmd = new SqlCommand("""
-                UPDATE dbo.Categoria 
-                SET Nombre = @nombre, 
-                    ModificadoPor = @userId,
-                    FechaModificacion = SYSUTCDATETIME()
-                WHERE CategoriaId = @id
+                EXEC ActualizarCategoria 
+                @id = @id,
+                @userId = @userId, 
+                @nombre = @nombre
                 """, cn);
             cmd.Parameters.AddWithValue("@nombre", nombre);
             cmd.Parameters.AddWithValue("@userId", userId > 0 ? userId : (object)DBNull.Value);
@@ -64,7 +64,7 @@ namespace StockLite.Services
         public static void Delete(int id)
         {
             using var cn = new SqlConnection(CS);
-            using var cmd = new SqlCommand("UPDATE dbo.Categoria SET Activo = 0 WHERE CategoriaId = @id", cn);
+            using var cmd = new SqlCommand("EXEC AnularCategoria @id", cn);
             cmd.Parameters.AddWithValue("@id", id);
             cn.Open();
             cmd.ExecuteNonQuery();

@@ -15,21 +15,7 @@ namespace StockLite.Services
             cn.Open();
 
             const string sql = @"
-        SELECT p.ProductoId,
-               p.Codigo,
-               p.Nombre,
-               p.CategoriaId,
-               c.Nombre AS CategoriaNombre,
-               p.CostoActual AS PrecioCosto,
-               p.PrecioActual AS PrecioVenta,
-               p.Stock AS StockActual,
-               p.ProveedorId,
-               ISNULL(pr.Nombre, '-- Sin proveedor --') AS ProveedorNombre
-        FROM dbo.Producto p
-        LEFT JOIN dbo.Categoria c ON p.CategoriaId = c.CategoriaId
-        LEFT JOIN dbo.Proveedor pr ON p.ProveedorId = pr.ProveedorId AND pr.Activo = 1
-        WHERE p.Activo = 1
-        ORDER BY p.Nombre";
+            EXEC ListarProducto;";
 
             using var cmd = new SqlCommand(sql, cn);
             using var dr = cmd.ExecuteReader();
@@ -56,10 +42,15 @@ namespace StockLite.Services
         public static void Insert(string codigo, string nombre, int categoriaId, decimal costoActual, decimal precio, int? proveedorId)
         {
             const string sql = @"
-        INSERT INTO Producto 
-            (Codigo, Nombre, CategoriaId, CostoActual, PrecioActual, PrecioVenta, ProveedorId, Stock, CreadoPor, FechaCreacion, Activo)
-        VALUES 
-            (@codigo, @nombre, @categoriaId, @costoActual, @precio, @precio, @proveedorId, 0, @creadoPor, SYSDATETIME(), 1)";
+            EXEC InsertarProducto
+            @codigo = @codigo,
+            @nombre = @nombre,
+            @categoriaId = @categoriaId,
+            @costoActual = @costoActual,
+            @precio = @precio,
+            @proveedorId = @proveedorId,
+            @creadoPor = @creadoPor
+            ";
 
             using var cn = new SqlConnection(CS);
             cn.Open();
@@ -77,16 +68,14 @@ namespace StockLite.Services
         public static void Update(int productoId, string codigo, string nombre, int categoriaId, decimal costoActual, decimal precio, int? proveedorId, int modificadoPor)
         {
             const string sql = @"
-        UPDATE Producto 
-        SET Nombre = @nombre,
-            CategoriaId = @categoriaId,
-            CostoActual = @costoActual,
-            PrecioActual = @precio,
-            PrecioVenta = @precio,
-            ProveedorId = @proveedorId,
-            ModificadoPor = @modificadoPor,
-            FechaModificacion = SYSDATETIME()
-        WHERE ProductoId = @productoId";
+            EXEC ActualizarProducto
+            @productoId = @productoId,
+            @nombre = @nombre,
+            @categoriaId = @categoriaId,
+            @costoActual = @costoActual,
+            @precio = @precio,
+            @proveedorId = @proveedorId,
+            @modificadopor = @modificadopor";
 
             using var cn = new SqlConnection(CS);
             cn.Open();
@@ -105,7 +94,7 @@ namespace StockLite.Services
         {
             using var cn = new SqlConnection(CS);
             cn.Open();
-            using var cmd = new SqlCommand("UPDATE Producto SET Activo = 0 WHERE ProductoId = @id", cn);
+            using var cmd = new SqlCommand("EXEC AnularProducto @id = @id", cn);
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cmd.ExecuteNonQuery();
         }

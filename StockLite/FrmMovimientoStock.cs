@@ -142,39 +142,7 @@ namespace StockLite
 
 
 
-        private void btnEntrada_Click(object sender, EventArgs e)
-        {
-            if (productoEntrada == null || cmbProductoEntrada.SelectedIndex == -1)
-            {
-                MessageBox.Show("Debe seleccionar un producto para la entrada.", "Falta producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            int? proveedorId = cmbProveedor.SelectedValue is int pv && pv > 0 ? pv : null;
-
-
-            MovimientoStockService.Insert(false, proveedorId, txtObsE.Text.Trim(),
-                new List<DetalleMovimientoView>
-                {
-                    new()
-                    {
-                        ProductoId = productoEntrada.ProductoId,
-                        Cantidad = (int)nudCantidadE.Value,
-                        PrecioCompra = productoEntrada.PrecioCosto,
-                        PrecioVenta = productoEntrada.PrecioVenta
-                    }
-                });
-
-            MessageBox.Show("Entrada registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            CargarProductos();
-            CargarClientes();
-            nudCantidadE.Value = 1;
-            txtObsE.Clear();
-            cmbProveedor.SelectedIndex = -1;
-
-
-        }
 
         private void btnSalida_Click(object sender, EventArgs e)
         {
@@ -210,6 +178,38 @@ namespace StockLite
             CargarClientes();
             nudCantidadS.Value = 1;
             txtObsS.Clear();
+            cmbProveedor.SelectedIndex = -1;
+        }
+
+        private void btnEntrada_Click(object sender, EventArgs e)
+        {
+            if (productoEntrada == null || cmbProductoEntrada.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un producto para la entrada.", "Falta producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int? proveedorId = cmbProveedor.SelectedValue is int pv && pv > 0 ? pv : null;
+
+
+            MovimientoStockService.Insert(true, proveedorId, txtObsE.Text.Trim(),
+                new List<DetalleMovimientoView>
+                {
+                    new()
+                    {
+                        ProductoId = productoEntrada.ProductoId,
+                        Cantidad = (int)nudCantidadE.Value,
+                        PrecioCompra = productoEntrada.PrecioCosto,
+                        PrecioVenta = productoEntrada.PrecioVenta
+                    }
+                });
+
+            MessageBox.Show("Entrada registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            CargarProductos();
+            CargarClientes();
+            nudCantidadE.Value = 1;
+            txtObsE.Clear();
             cmbProveedor.SelectedIndex = -1;
         }
     }

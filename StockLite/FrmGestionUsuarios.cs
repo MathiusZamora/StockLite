@@ -62,7 +62,7 @@ namespace StockLite
 
         private void CargarUsuarios()
         {
-            const string sql = "SELECT UsuarioId, Nombre, Usuario, Rol FROM dbo.Usuario WHERE Activo = 1 ORDER BY Nombre";
+            const string sql = " EXEC ListarUsuarios;";
             var dt = Db.Query(sql);
             dgvUsuarios.DataSource = dt;
         }
@@ -83,7 +83,7 @@ namespace StockLite
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtUsuario.Text) ||
-                string.IsNullOrWhiteSpace(txtClave.Text) ||
+                //string.IsNullOrWhiteSpace(txtClave.Text) ||
                 cmbRol.SelectedIndex == -1)
             {
                 MessageBox.Show("Todos los campos son obligatorios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -94,10 +94,13 @@ namespace StockLite
 
             if (usuarioEditar == null)
             {
-                const string sql = """
-                    INSERT INTO dbo.Usuario (Nombre, Usuario, ClaveHash, Rol, Activo)
-                    VALUES (@nombre, @usuario, @hash, @rol, 1)
-                    """;
+                const string sql = @"
+                EXEC InsertarUsuario 
+                    @nombre = @nombre,
+                    @usuario = @usuario, 
+                    @hash = @hash,
+                    @rol = @rol";
+
                 Db.Exec(sql,
                     new SqlParameter("@nombre", txtNombre.Text.Trim()),
                     new SqlParameter("@usuario", txtUsuario.Text.Trim()),
@@ -109,25 +112,30 @@ namespace StockLite
             {
                 // UPDATE → no tocamos Activo
                 const string sql = """
-                    UPDATE dbo.Usuario
-                    SET Nombre = @nombre, Usuario = @usuario, Rol = @rol
-                    WHERE UsuarioId = @id
-                    """;
+                EXEC ActualizarUsuario 
+                    @nombre = @nombre,
+                    @usuario = @usuario, 
+                    @hash = @hash,
+                    @rol = @rol,
+                    @id = @id
+                """;
+
                 Db.Exec(sql,
                     new SqlParameter("@nombre", txtNombre.Text.Trim()),
                     new SqlParameter("@usuario", txtUsuario.Text.Trim()),
+                    new SqlParameter("@hash", txtClave.Text.Trim()),
                     new SqlParameter("@rol", cmbRol.Text),
                     new SqlParameter("@id", usuarioEditar.UsuarioId)
                 );
 
-                if (!string.IsNullOrWhiteSpace(txtClave.Text))
-                {
-                    const string sqlPass = "UPDATE dbo.Usuario SET ClaveHash = @hash WHERE UsuarioId = @id";
-                    Db.Exec(sqlPass,
-                        new SqlParameter("@hash", hash),
-                        new SqlParameter("@id", usuarioEditar.UsuarioId)
-                    );
-                }
+                //if (!string.IsNullOrWhiteSpace(txtClave.Text))
+                //{
+                //    const string sqlPass = "UPDATE dbo.Usuario SET ClaveHash = @hash WHERE UsuarioId = @id";
+                //    Db.Exec(sqlPass,
+                //        new SqlParameter("@hash", hash),
+                //        new SqlParameter("@id", usuarioEditar.UsuarioId)
+                //    );
+                //}
             }
 
             MessageBox.Show("Usuario guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,7 +176,7 @@ namespace StockLite
             if (MessageBox.Show($"¿Desactivar al usuario '{usuarioEditar.NombreUsuario}'?\nYa no podrá iniciar sesión.",
                 "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                const string sql = "UPDATE dbo.Usuario SET Activo = 0 WHERE UsuarioId = @id";
+                const string sql = "EXEC AnularUsuario @id";
                 Db.Exec(sql, new SqlParameter("@id", usuarioEditar.UsuarioId));
 
                 MessageBox.Show("Usuario desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

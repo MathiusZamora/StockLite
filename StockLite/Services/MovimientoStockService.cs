@@ -22,9 +22,12 @@ namespace StockLite.Services
             try
             {
                 string sqlCab = @"
-                    INSERT INTO dbo.MovimientoStock (Fecha, EsEntrada, ClienteId, Observacion, CreadoPor, FechaCreacion)
-                    VALUES (SYSDATETIME(), @esEntrada, @clienteId, @observacion, @creadoPor, SYSDATETIME());
-                    SELECT SCOPE_IDENTITY();";
+                    EXEC InsertarMovimientoStock
+                    @esEntrada = @esEntrada,
+                    @clienteId = @clienteId,
+                    @observacion = @observacion,
+                    @creadoPor = @creadoPor
+                    ";
 
                 using var cmdCab = new SqlCommand(sqlCab, cn, tran);
                 cmdCab.Parameters.Add("@esEntrada", SqlDbType.Bit).Value = esEntrada;
@@ -37,9 +40,14 @@ namespace StockLite.Services
                 foreach (var d in detalles)
                 {
                     string sqlDet = @"
-                        INSERT INTO DetalleMovimientoStock
-                            (MovimientoId, ProductoId, Cantidad, PrecioCompra, PrecioVenta, CreadoPor, FechaCreacion)
-                        VALUES (@movId, @prodId, @cant, @pCompra, @pVenta, @creadoPor, SYSDATETIME())";
+                        EXEC InsertarDetalleMovimientoStock
+                        @movId = @movId,
+                        @prodId = @prodId,
+                        @cant = @cant,
+                        @pCompra = @pCompra,
+                        @pVenta = @pVenta,
+                        @creadoPor = @creadoPor
+                        ";
 
                     using var cmdDet = new SqlCommand(sqlDet, cn, tran);
                     cmdDet.Parameters.Add("@movId", SqlDbType.Int).Value = movimientoId;
@@ -52,8 +60,8 @@ namespace StockLite.Services
                     cmdDet.ExecuteNonQuery();
 
                     string sqlStock = esEntrada
-                        ? "UPDATE dbo.Producto SET Stock = Stock + @cant WHERE ProductoId = @id"
-                        : "UPDATE dbo.Producto SET Stock = Stock - @cant WHERE ProductoId = @id";
+                        ? "EXEC SumarStock @cant = @cant, @id = @id"
+                        : "EXEC RestarStock @cant = @cant, @id = @id";
 
                     using var cmdStock = new SqlCommand(sqlStock, cn, tran);
                     cmdStock.Parameters.Add("@cant", SqlDbType.Int).Value = d.Cantidad;
@@ -76,28 +84,15 @@ namespace StockLite.Services
             var lista = new List<HistorialView>();
 
             const string sql = @"
-    SELECT 
-        m.FechaCreacion AS Fecha,
-        CASE WHEN m.EsEntrada = 1 THEN 'ENTRADA' ELSE 'SALIDA' END AS Tipo,
-        p.Codigo,
-        p.Nombre AS Producto,
-        d.Cantidad,
-        ISNULL(c.Nombre, 'Sin cliente') AS Cliente,
-        ISNULL(pr.Nombre, 'Sin proveedor') AS Proveedor,
-        ISNULL(u.Usuario, 'Desconocido') AS Usuario,
-        ISNULL(m.Observacion, '') AS Observacion
-    FROM MovimientoStock m
-    INNER JOIN DetalleMovimientoStock d ON m.MovimientoId = d.MovimientoId
-    INNER JOIN Producto p ON d.ProductoId = p.ProductoId
-    LEFT JOIN Cliente c ON m.ClienteId = c.ClienteId
-    LEFT JOIN Proveedor pr ON p.ProveedorId = pr.ProveedorId
-    INNER JOIN Usuario u ON m.CreadoPor = u.UsuarioId
-    WHERE m.FechaCreacion >= @desde 
-      AND m.FechaCreacion < DATEADD(DAY, 1, @hasta)
-      AND (@productoId IS NULL OR d.ProductoId = @productoId)
-      AND (@clienteId IS NULL OR m.ClienteId = @clienteId OR (m.ClienteId IS NULL AND @clienteId = 0))
-      AND (@proveedorId IS NULL OR p.ProveedorId = @proveedorId)
-    ORDER BY m.FechaCreacion DESC";
+    
+            EXEC BuscarHistorial
+            @desde = @desde,
+            @hasta = @hasta,
+            @productoId = @productoId,
+            @clienteId = @clienteId,
+            @proveedorId = @proveedorId
+
+            ";
 
             using var cn = new SqlConnection(CS);
             cn.Open();

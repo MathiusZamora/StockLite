@@ -28,7 +28,7 @@ namespace StockLite
             using var cmd = new SqlCommand(sql, cn);
             if (parameters.Length > 0) cmd.Parameters.AddRange(parameters);
             cn.Open();
-            return cmd.ExecuteNonQuery();
+                return cmd.ExecuteNonQuery();
         }
 
         public static object? Scalar(string sql, params SqlParameter[] parameters)

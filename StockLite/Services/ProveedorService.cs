@@ -16,10 +16,7 @@ namespace StockLite.Services
         {
             var lista = new List<Proveedor>();
             const string sql = @"
-                SELECT ProveedorId, Nombre, Contacto, Telefono, Email, Activo, CreadoPor, FechaCreacion 
-                FROM Proveedor 
-                WHERE Activo = 1 
-                ORDER BY Nombre";
+                EXEC ListarProveedor;";
 
             using var cn = new SqlConnection(CS);
             cn.Open();
@@ -45,8 +42,13 @@ namespace StockLite.Services
         public static void Insert(Proveedor p)
         {
             const string sql = @"
-                INSERT INTO Proveedor (Nombre, Contacto, Telefono, Email, CreadoPor, FechaCreacion, Activo)
-                VALUES (@Nombre, @Contacto, @Telefono, @Email, @CreadoPor, SYSDATETIME(), 1)";
+                EXEC InsertarProveedor  
+                @Nombre = @Nombre,
+                @Contacto = @Contacto,
+                @Telefono = @Telefono,
+                @Email = @Email,
+                @CreadoPor = @CreadoPor
+                ";
 
             using var cn = new SqlConnection(CS);
             cn.Open();
@@ -62,12 +64,12 @@ namespace StockLite.Services
         public static void Update(Proveedor p)
         {
             const string sql = @"
-                UPDATE Proveedor 
-                SET Nombre = @Nombre,
-                    Contacto = @Contacto,
-                    Telefono = @Telefono,
-                    Email = @Email
-                WHERE ProveedorId = @ProveedorId";
+                EXEC ActualizarProveedor
+                @ProveedorId = @ProveedorId,
+                @Nombre = @Nombre,
+                @Contacto = @Contacto,
+                @Telefono = @Telefono,
+                @Email = @Email";
 
             using var cn = new SqlConnection(CS);
             cn.Open();
@@ -83,7 +85,7 @@ namespace StockLite.Services
         // BORRADO LÓGICO – PROFESIONAL
         public static void Delete(int proveedorId)
         {
-            const string sql = "UPDATE Proveedor SET Activo = 0 WHERE ProveedorId = @id";
+            const string sql = "EXEC AnularProveedor @id = @id";
 
             using var cn = new SqlConnection(CS);
             cn.Open();
