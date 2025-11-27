@@ -470,8 +470,6 @@ BEGIN
 END 
 GO
 
-drop proc BuscarHistorial
-
 CREATE PROC BuscarHistorial
     @desde DATETIME2,
     @hasta DATETIME2,
