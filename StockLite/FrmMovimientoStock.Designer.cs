@@ -59,7 +59,7 @@
             lblTituloEntrada.AutoSize = true;
             lblTituloEntrada.Location = new Point(84, 33);
             lblTituloEntrada.Name = "lblTituloEntrada";
-            lblTituloEntrada.Size = new Size(114, 15);
+            lblTituloEntrada.Size = new Size(116, 15);
             lblTituloEntrada.TabIndex = 0;
             lblTituloEntrada.Text = "ENTRADA DE STOCK";
             // 
@@ -224,7 +224,7 @@
             lblTituloSalida.AutoSize = true;
             lblTituloSalida.Location = new Point(482, 33);
             lblTituloSalida.Name = "lblTituloSalida";
-            lblTituloSalida.Size = new Size(101, 15);
+            lblTituloSalida.Size = new Size(102, 15);
             lblTituloSalida.TabIndex = 9;
             lblTituloSalida.Text = "SALIDA DE STOCK";
             // 
@@ -293,6 +293,7 @@
             Controls.Add(cmbProductoEntrada);
             Controls.Add(lblProductoE);
             Controls.Add(lblTituloEntrada);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmMovimientoStock";
             StartPosition = FormStartPosition.CenterScreen;

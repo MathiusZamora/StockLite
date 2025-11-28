@@ -337,6 +337,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(863, 503);
             Controls.Add(splitContainer1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmHistorialStock";
             StartPosition = FormStartPosition.CenterScreen;

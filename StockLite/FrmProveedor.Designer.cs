@@ -199,6 +199,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(856, 454);
             Controls.Add(splitContainer1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "FrmProveedor";
             StartPosition = FormStartPosition.CenterScreen;
