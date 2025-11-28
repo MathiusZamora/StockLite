@@ -18,6 +18,7 @@ namespace StockLite
 
         private void ConfigurarDataGrid()
         {
+
             dgvUsuarios.AutoGenerateColumns = false;
             dgvUsuarios.Columns.Clear();
 
@@ -65,6 +66,9 @@ namespace StockLite
             const string sql = " EXEC ListarUsuarios;";
             var dt = Db.Query(sql);
             dgvUsuarios.DataSource = dt;
+
+            dgvUsuarios.RowHeadersVisible = false;
+            dgvUsuarios.RowHeadersWidth = 4;
         }
 
         private void LimpiarCampos()

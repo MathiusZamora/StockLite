@@ -76,7 +76,7 @@ namespace StockLite
             using var f = new Form
             {
                 Text = "Seleccionar Producto",
-                Size = new Size(850, 600),
+                Size = new Size(480, 600),
                 StartPosition = FormStartPosition.CenterParent,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 MaximizeBox = false
@@ -89,7 +89,12 @@ namespace StockLite
                 ReadOnly = true,
                 AutoGenerateColumns = false,
                 SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                AllowUserToAddRows = false
+                AllowUserToAddRows = false,
+
+                RowHeadersVisible = false,      
+                RowHeadersWidth = 4,
+                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
+
             };
 
             dgv.Columns.AddRange(new DataGridViewColumn[]
@@ -99,6 +104,7 @@ namespace StockLite
         new DataGridViewTextBoxColumn { DataPropertyName = "ProveedorNombre", HeaderText = "Proveedor", Width = 200 },
         new DataGridViewTextBoxColumn { DataPropertyName = "StockActual", HeaderText = "Stock", Width = 80 },
         new DataGridViewTextBoxColumn { DataPropertyName = "PrecioCosto", HeaderText = "Costo", Width = 80, DefaultCellStyle = new DataGridViewCellStyle { Format = "N2" } },
+
             });
 
             dgv.DoubleClick += (s, e) =>
@@ -113,6 +119,8 @@ namespace StockLite
 
             f.Controls.Add(dgv);
             f.ShowDialog(this);
+
+            
         }
 
 
