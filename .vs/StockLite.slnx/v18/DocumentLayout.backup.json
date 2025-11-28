@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,16 +11,52 @@
       "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\frmgestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|C:\\Users\\Mathius Z\\Desktop\\StockLite\\stocklite\\frmgestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\frmgestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\services\\proyecto-1-reingenieria_proyecto.sql||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\services\\proyecto-1-reingenieria_proyecto.sql||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\frmlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\frmlogin.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\models\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\models\\proveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\models\\historialview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\models\\historialview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|C:\\Users\\Mathius Z\\Desktop\\StockLite\\stocklite\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|c:\\users\\mathius z\\desktop\\stocklite\\stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\formmainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|C:\\Users\\Mathius Z\\Desktop\\StockLite\\stocklite\\frmgestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6139D11-7822-D560-3126-03BEEEE23959}|StockLite\\StockLite.csproj|solutionrelative:stocklite\\frmgestionusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,36 +66,153 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
+              "Title": "Proyecto-1-Reingenieria_Proyecto.sql",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Services\\Proyecto-1-Reingenieria_Proyecto.sql",
+              "RelativeDocumentMoniker": "StockLite\\Services\\Proyecto-1-Reingenieria_Proyecto.sql",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Services\\Proyecto-1-Reingenieria_Proyecto.sql",
+              "RelativeToolTip": "StockLite\\Services\\Proyecto-1-Reingenieria_Proyecto.sql",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHMAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-11-28T20:23:32.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "StockLite\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Services\\AuthService.cs",
+              "RelativeToolTip": "StockLite\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T18:02:03.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Proveedor.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Models\\Proveedor.cs",
+              "RelativeDocumentMoniker": "StockLite\\Models\\Proveedor.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Models\\Proveedor.cs",
+              "RelativeToolTip": "StockLite\\Models\\Proveedor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T20:21:54.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "StockLite\\Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Models\\Producto.cs",
+              "RelativeToolTip": "StockLite\\Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T20:21:51.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HistorialView.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Models\\HistorialView.cs",
+              "RelativeDocumentMoniker": "StockLite\\Models\\HistorialView.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Models\\HistorialView.cs",
+              "RelativeToolTip": "StockLite\\Models\\HistorialView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T20:21:49.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "StockLite\\Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Models\\Cliente.cs",
+              "RelativeToolTip": "StockLite\\Models\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T20:21:47.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "FrmGestionUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmGestionUsuarios.cs",
               "RelativeDocumentMoniker": "StockLite\\FrmGestionUsuarios.cs",
-              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmGestionUsuarios.cs",
-              "RelativeToolTip": "StockLite\\FrmGestionUsuarios.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAD4AAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmGestionUsuarios.cs*",
+              "RelativeToolTip": "StockLite\\FrmGestionUsuarios.cs*",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAFUAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-20T23:07:08.868Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Program.cs",
+              "RelativeDocumentMoniker": "StockLite\\Program.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Program.cs",
+              "RelativeToolTip": "StockLite\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T22:38:14.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmLogin.cs",
+              "RelativeDocumentMoniker": "StockLite\\FrmLogin.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmLogin.cs",
+              "RelativeToolTip": "StockLite\\FrmLogin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T20:27:01.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FrmLogin.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmLogin.Designer.cs",
+              "RelativeDocumentMoniker": "StockLite\\FrmLogin.Designer.cs",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmLogin.Designer.cs",
+              "RelativeToolTip": "StockLite\\FrmLogin.Designer.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-28T20:26:47.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "FrmGestionUsuarios.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmGestionUsuarios.cs",
               "RelativeDocumentMoniker": "StockLite\\FrmGestionUsuarios.cs",
-              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmGestionUsuarios.cs [Dise\u00F1o]",
-              "RelativeToolTip": "StockLite\\FrmGestionUsuarios.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmGestionUsuarios.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "StockLite\\FrmGestionUsuarios.cs [Dise\u00F1o]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-20T23:03:47.938Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "FrmLogin.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FrmLogin.cs",
               "RelativeDocumentMoniker": "StockLite\\FrmLogin.cs",
@@ -75,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "FormMainMenu.cs",
               "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FormMainMenu.cs",
               "RelativeDocumentMoniker": "StockLite\\FormMainMenu.cs",
@@ -88,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "FormMainMenu.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\FormMainMenu.cs",
               "RelativeDocumentMoniker": "StockLite\\FormMainMenu.cs",
@@ -97,19 +246,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-20T22:41:12.309Z",
               "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Program.cs",
-              "RelativeDocumentMoniker": "StockLite\\Program.cs",
-              "ToolTip": "C:\\Users\\Mathius Z\\Desktop\\StockLite\\StockLite\\Program.cs",
-              "RelativeToolTip": "StockLite\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T22:38:14.361Z",
-              "EditorCaption": ""
             }
           ]
         }
