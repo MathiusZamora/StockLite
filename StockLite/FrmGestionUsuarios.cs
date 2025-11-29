@@ -18,6 +18,7 @@ namespace StockLite
 
         private void ConfigurarDataGrid()
         {
+
             dgvUsuarios.AutoGenerateColumns = false;
             dgvUsuarios.Columns.Clear();
 
@@ -65,6 +66,9 @@ namespace StockLite
             const string sql = " EXEC ListarUsuarios;";
             var dt = Db.Query(sql);
             dgvUsuarios.DataSource = dt;
+
+            dgvUsuarios.RowHeadersVisible = false;
+            dgvUsuarios.RowHeadersWidth = 4;
         }
 
         private void LimpiarCampos()
@@ -81,66 +85,105 @@ namespace StockLite
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Validación de campos obligatorios
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtUsuario.Text) ||
-                //string.IsNullOrWhiteSpace(txtClave.Text) ||
                 cmbRol.SelectedIndex == -1)
             {
-                MessageBox.Show("Todos los campos son obligatorios.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Los campos Nombre, Usuario y Rol son obligatorios.", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string hash = BCrypt.Net.BCrypt.HashPassword(txtClave.Text);
+            // Si es un usuario NUEVO → contraseña OBLIGATORIA
+            // Si es edición → contraseña OPCIONAL (solo si la escribe)
+            bool esNuevo = usuarioEditar == null;
+            bool tieneClave = !string.IsNullOrWhiteSpace(txtClave.Text);
 
-            if (usuarioEditar == null)
+            if (esNuevo && !tieneClave)
             {
-                const string sql = @"
+                MessageBox.Show("La contraseña es obligatoria para nuevos usuarios.", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Generar hash SOLO si hay contraseña (nuevo o cambio de clave)
+            string hash = tieneClave ? BCrypt.Net.BCrypt.HashPassword(txtClave.Text.Trim()) : null;
+
+            try
+            {
+                if (esNuevo)
+                {
+                    // === INSERTAR NUEVO USUARIO ===
+                    const string sql = """
                 EXEC InsertarUsuario 
                     @nombre = @nombre,
-                    @usuario = @usuario, 
+                    @usuario = @usuario,
                     @hash = @hash,
-                    @rol = @rol";
-
-                Db.Exec(sql,
-                    new SqlParameter("@nombre", txtNombre.Text.Trim()),
-                    new SqlParameter("@usuario", txtUsuario.Text.Trim()),
-                    new SqlParameter("@hash", hash),
-                    new SqlParameter("@rol", cmbRol.Text)
-                );
-            }
-            else
-            {
-                // UPDATE → no tocamos Activo
-                const string sql = """
-                EXEC ActualizarUsuario 
-                    @nombre = @nombre,
-                    @usuario = @usuario, 
-                    @hash = @hash,
-                    @rol = @rol,
-                    @id = @id
+                    @rol = @rol
                 """;
 
-                Db.Exec(sql,
-                    new SqlParameter("@nombre", txtNombre.Text.Trim()),
-                    new SqlParameter("@usuario", txtUsuario.Text.Trim()),
-                    new SqlParameter("@hash", txtClave.Text.Trim()),
-                    new SqlParameter("@rol", cmbRol.Text),
-                    new SqlParameter("@id", usuarioEditar.UsuarioId)
-                );
+                    Db.Exec(sql,
+                        new SqlParameter("@nombre", txtNombre.Text.Trim()),
+                        new SqlParameter("@usuario", txtUsuario.Text.Trim()),
+                        new SqlParameter("@hash", hash),
+                        new SqlParameter("@rol", cmbRol.Text)
+                    );
+                }
+                else
+                {
+                    // === ACTUALIZAR USUARIO EXISTENTE ===
+                    if (tieneClave)
+                    {
+                        // Cambia nombre de usuario + contraseña
+                        const string sql = """
+                    EXEC ActualizarUsuario 
+                        @id = @id,
+                        @nombre = @nombre,
+                        @usuario = @usuario,
+                        @hash = @hash,
+                        @rol = @rol
+                    """;
 
-                //if (!string.IsNullOrWhiteSpace(txtClave.Text))
-                //{
-                //    const string sqlPass = "UPDATE dbo.Usuario SET ClaveHash = @hash WHERE UsuarioId = @id";
-                //    Db.Exec(sqlPass,
-                //        new SqlParameter("@hash", hash),
-                //        new SqlParameter("@id", usuarioEditar.UsuarioId)
-                //    );
-                //}
+                        Db.Exec(sql,
+                            new SqlParameter("@id", usuarioEditar.UsuarioId),
+                            new SqlParameter("@nombre", txtNombre.Text.Trim()),
+                            new SqlParameter("@usuario", txtUsuario.Text.Trim()),
+                            new SqlParameter("@hash", hash),           // ← HASH NUEVO
+                            new SqlParameter("@rol", cmbRol.Text)
+                        );
+                    }
+                    else
+                    {
+                        // Solo cambia datos (sin tocar contraseña)
+                        const string sql = """
+                    EXEC ActualizarUsuario 
+                        @id = @id,
+                        @nombre = @nombre,
+                        @usuario = @usuario,
+                        @hash = NULL,        -- ← Indica que NO cambie la contraseña
+                        @rol = @rol
+                    """;
+
+                        Db.Exec(sql,
+                            new SqlParameter("@id", usuarioEditar.UsuarioId),
+                            new SqlParameter("@nombre", txtNombre.Text.Trim()),
+                            new SqlParameter("@usuario", txtUsuario.Text.Trim()),
+                            new SqlParameter("@rol", cmbRol.Text)
+                        );
+                    }
+                }
+
+                MessageBox.Show("Usuario guardado correctamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarUsuarios();
+                LimpiarCampos();
             }
-
-            MessageBox.Show("Usuario guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CargarUsuarios();
-            LimpiarCampos();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -27,7 +27,7 @@ namespace StockLite
             dgvProveedores.ReadOnly = true;
             dgvProveedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProveedores.Dock = DockStyle.Fill;
-
+            
             dgvProveedores.Columns.Clear();
             dgvProveedores.Columns.AddRange(new DataGridViewColumn[]
             {
@@ -40,6 +40,10 @@ namespace StockLite
             });
 
             dgvProveedores.CellClick += (s, e) => { if (e.RowIndex >= 0) MostrarSeleccionado(); };
+
+            dgvProveedores.RowHeadersVisible = false;
+            dgvProveedores.RowHeadersWidth = 4;
+            dgvProveedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void CargarProveedores()

@@ -79,6 +79,10 @@ namespace StockLite
 
                 e.FormattingApplied = true;
             };
+
+            dgvHistorial.RowHeadersVisible = false;
+            dgvHistorial.RowHeadersWidth = 4;
+            //dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void CargarProductos()

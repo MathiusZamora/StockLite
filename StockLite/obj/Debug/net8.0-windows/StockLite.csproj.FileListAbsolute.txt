@@ -288,3 +288,10 @@ E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLit
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.pdb
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.genruntimeconfig.cache
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\ref\StockLite.dll
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmCategoria.resources
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmCliente.resources
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmHistorialStock.resources
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmMovimientoStock.resources
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProducto.resources
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProveedor.resources
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmReportes.resources

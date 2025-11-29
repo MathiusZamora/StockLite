@@ -17,12 +17,17 @@ namespace StockLite
             {
                 dgvCategorias.DataSource = CategoriaService.GetAll();
                 dgvCategorias.Columns["Activo"].Visible = false; // Hide Activo column
+
+                dgvCategorias.RowHeadersVisible = false;
+                dgvCategorias.RowHeadersWidth = 4;
+                dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar categorías: {ex.Message}", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
         private void LimpiarCampos()
         {

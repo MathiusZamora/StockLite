@@ -63,6 +63,10 @@ namespace StockLite
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProductos.AllowUserToAddRows = false;
             dgvProductos.CellClick += dgvProductos_CellClick;
+
+            dgvProductos.RowHeadersVisible = false;
+            dgvProductos.RowHeadersWidth = 4;
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void CargarProductos()

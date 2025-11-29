@@ -27,9 +27,14 @@ namespace StockLite
             dgvClientes.ReadOnly = true;
             dgvClientes.AllowUserToAddRows = false;
             dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
+
+            dgvClientes.RowHeadersVisible = false;
+            dgvClientes.RowHeadersWidth = 4;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void CargarClientes() => dgvClientes.DataSource = ClienteService.GetAll();
+        private void CargarClientes() => dgvClientes.DataSource = ClienteService.GetAll()
+            ;
 
         private void Limpiar()
         {
