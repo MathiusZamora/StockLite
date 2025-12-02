@@ -6,6 +6,7 @@ namespace StockLite
     public partial class FormMainMenu : Form
     {
         private readonly Usuario _usuario;
+        private System.Windows.Forms.Timer relojTimer;
         public static Usuario? UsuarioActual { get; private set; }
 
         public FormMainMenu(Usuario usuario)
@@ -16,19 +17,32 @@ namespace StockLite
 
         private void FormMainMenu_Load(object sender, EventArgs e)
         {
-            // StatusStrip
+            // StatusStrip - Usuario y Rol
             toolStripStatusLabel1.Text = $"Usuario: {_usuario.NombreUsuario}";
             toolStripStatusLabel2.Text = $"Rol: {_usuario.Rol}";
-            toolStripStatusLabel3.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy - HH:mm");
+
+           
+            ActualizarReloj(); 
+
+            // Crear y configurar el Timer
+            relojTimer = new System.Windows.Forms.Timer();
+            relojTimer.Interval = 1000; 
+            relojTimer.Tick += (s, args) => ActualizarReloj();
+            relojTimer.Start();
 
             // Mostrar botón de Gestión de Usuarios solo si es Administrador
             bool esAdmin = _usuario.Rol == "Administrador";
             pnlGestionUsuarios.Visible = esAdmin;
 
-            // Opcional: cambiar título
+            // Título de la ventana
             this.Text = $"StockLite - Bienvenido, {_usuario.Nombre}";
-
             UsuarioActual = _usuario;
+        }
+
+       
+        private void ActualizarReloj()
+        {
+            toolStripStatusLabel3.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy - HH:mm:ss");
         }
 
         // Evento del botón grande de Gestión de Usuarios
@@ -97,11 +111,7 @@ namespace StockLite
 
         }
 
-        private void pnlReportes_Click(object sender, EventArgs e)
-        {
-            new FrmReportes().ShowDialog();
-
-        }
+        
         private void pnlProveedores_Click(object sender, EventArgs e)
         {
             new FrmProveedor().ShowDialog();

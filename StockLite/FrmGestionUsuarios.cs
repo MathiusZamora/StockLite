@@ -107,6 +107,53 @@ namespace StockLite
                 return;
             }
 
+            //VALIDACIÓN: Usuario y Nombre únicos
+            string nombreIngresado = txtNombre.Text.Trim();
+            string usuarioIngresado = txtUsuario.Text.Trim();
+
+            // Consulta para verificar duplicados
+            const string sqlCheck = """
+            SELECT UsuarioId, Nombre, Usuario 
+            FROM dbo.Usuario 
+            WHERE Activo = 1 
+            AND (Usuario = @usuario OR Nombre = @nombre)
+            """;
+
+            var dtCheck = Db.Query(sqlCheck,
+                new SqlParameter("@usuario", usuarioIngresado),
+                new SqlParameter("@nombre", nombreIngresado));
+
+            foreach (DataRow row in dtCheck.Rows)
+            {
+                int idExistente = Convert.ToInt32(row["UsuarioId"]);
+
+                
+                if (!esNuevo && idExistente == usuarioEditar.UsuarioId)
+                    continue;
+
+                string usuarioDb = row["Usuario"].ToString()!;
+                string nombreDb = row["Nombre"].ToString()!;
+
+                if (string.Equals(usuarioDb, usuarioIngresado, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("El nombre de usuario ya está en uso. Elige otro.", "Usuario duplicado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUsuario.Focus();
+                    txtUsuario.SelectAll();
+                    return;
+                }
+
+                if (string.Equals(nombreDb, nombreIngresado, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Ya existe un usuario con este nombre completo.", "Nombre duplicado",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNombre.Focus();
+                    txtNombre.SelectAll();
+                    return;
+                }
+            }
+
+
             // Generar hash SOLO si hay contraseña (nuevo o cambio de clave)
             string hash = tieneClave ? BCrypt.Net.BCrypt.HashPassword(txtClave.Text.Trim()) : null;
 
@@ -149,13 +196,13 @@ namespace StockLite
                             new SqlParameter("@id", usuarioEditar.UsuarioId),
                             new SqlParameter("@nombre", txtNombre.Text.Trim()),
                             new SqlParameter("@usuario", txtUsuario.Text.Trim()),
-                            new SqlParameter("@hash", hash),           // ← HASH NUEVO
+                            new SqlParameter("@hash", hash),           
                             new SqlParameter("@rol", cmbRol.Text)
                         );
                     }
                     else
                     {
-                        // Solo cambia datos (sin tocar contraseña)
+                        
                         const string sql = """
                     EXEC ActualizarUsuario 
                         @id = @id,

@@ -42,9 +42,6 @@
             pnlHistorial = new Panel();
             pictureBox7 = new PictureBox();
             label7 = new Label();
-            pnlReportes = new Panel();
-            pictureBox8 = new PictureBox();
-            label8 = new Label();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             pnlGestionUsuarios.SuspendLayout();
@@ -61,8 +58,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             pnlHistorial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            pnlReportes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -239,7 +234,7 @@
             pnlProductos.Controls.Add(pictureBox4);
             pnlProductos.Controls.Add(label4);
             pnlProductos.Cursor = Cursors.Hand;
-            pnlProductos.Location = new Point(35, 292);
+            pnlProductos.Location = new Point(126, 299);
             pnlProductos.Name = "pnlProductos";
             pnlProductos.Size = new Size(152, 171);
             pnlProductos.TabIndex = 4;
@@ -265,7 +260,7 @@
             pnlStock.Controls.Add(pictureBox5);
             pnlStock.Controls.Add(label5);
             pnlStock.Cursor = Cursors.Hand;
-            pnlStock.Location = new Point(212, 292);
+            pnlStock.Location = new Point(303, 299);
             pnlStock.Name = "pnlStock";
             pnlStock.Size = new Size(150, 171);
             pnlStock.TabIndex = 5;
@@ -339,7 +334,7 @@
             pnlHistorial.Controls.Add(pictureBox7);
             pnlHistorial.Controls.Add(label7);
             pnlHistorial.Cursor = Cursors.Hand;
-            pnlHistorial.Location = new Point(400, 292);
+            pnlHistorial.Location = new Point(491, 299);
             pnlHistorial.Name = "pnlHistorial";
             pnlHistorial.Size = new Size(152, 171);
             pnlHistorial.TabIndex = 4;
@@ -369,50 +364,12 @@
             label7.Text = "Historial de Stock";
             label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // pnlReportes
-            // 
-            pnlReportes.BackColor = Color.White;
-            pnlReportes.BorderStyle = BorderStyle.FixedSingle;
-            pnlReportes.Controls.Add(pictureBox8);
-            pnlReportes.Controls.Add(label8);
-            pnlReportes.Cursor = Cursors.Hand;
-            pnlReportes.Location = new Point(585, 292);
-            pnlReportes.Name = "pnlReportes";
-            pnlReportes.Size = new Size(152, 171);
-            pnlReportes.TabIndex = 4;
-            pnlReportes.Click += pnlReportes_Click;
-            pnlReportes.MouseEnter += PanelHover_Enter;
-            pnlReportes.MouseLeave += PanelHover_Leave;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Image = Properties.Resources.reporte;
-            pictureBox8.Location = new Point(38, 15);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(77, 76);
-            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 0;
-            pictureBox8.TabStop = false;
-            pictureBox8.Click += pnlReportes_Click;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label8.Location = new Point(45, 113);
-            label8.Name = "label8";
-            label8.Size = new Size(69, 19);
-            label8.TabIndex = 1;
-            label8.Text = "Reportes";
-            label8.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // FormMainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(788, 518);
-            Controls.Add(pnlReportes);
             Controls.Add(pnlHistorial);
             Controls.Add(pnlProveedores);
             Controls.Add(pnlStock);
@@ -455,9 +412,6 @@
             pnlHistorial.ResumeLayout(false);
             pnlHistorial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            pnlReportes.ResumeLayout(false);
-            pnlReportes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -491,8 +445,5 @@
         private Panel pnlHistorial;
         private PictureBox pictureBox7;
         private Label label7;
-        private Panel pnlReportes;
-        private PictureBox pictureBox8;
-        private Label label8;
     }
 }

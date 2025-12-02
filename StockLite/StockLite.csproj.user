@@ -28,8 +28,5 @@
     <Compile Update="FrmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FrmReportes.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

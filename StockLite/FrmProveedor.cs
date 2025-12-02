@@ -1,4 +1,5 @@
-﻿using StockLite.Models;
+﻿using Microsoft.Data.SqlClient;
+using StockLite.Models;
 using StockLite.Services;
 using System;
 using System.Windows.Forms;
@@ -128,12 +129,45 @@ namespace StockLite
         {
             if (seleccionado == null) return;
 
-            if (MessageBox.Show($"¿Eliminar permanentemente el proveedor '{seleccionado.Nombre}'?\n\nNo se podrá deshacer.",
-                "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            // VALIDAR QUE NO TENGA PRODUCTOS ASOCIADOS
+            const string sqlCheck = "SELECT COUNT(*) FROM Producto WHERE ProveedorId = @id AND Activo = 1";
+            var count = (int)Db.Scalar(sqlCheck, new SqlParameter("@id", seleccionado.ProveedorId));
+
+            if (count > 0)
             {
-                ProveedorService.Delete(seleccionado.ProveedorId);
-                CargarProveedores();
-                LimpiarCampos();
+                MessageBox.Show(
+                    $"No se puede eliminar el proveedor '{seleccionado.Nombre}'.\n\n" +
+                    $"Tiene {count} producto(s) asociado(s) en el sistema.\n" +
+                    "Elimina o reasigna esos productos antes de continuar.",
+                    "Eliminación no permitida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop);
+                return;
+            }
+
+           
+            if (MessageBox.Show(
+                $"¿Eliminar permanentemente el proveedor '{seleccionado.Nombre}'?\n\n" +
+                "Esta acción no se puede deshacer.",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    ProveedorService.Delete(seleccionado.ProveedorId);
+
+                    MessageBox.Show("Proveedor eliminado correctamente.", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    CargarProveedores();
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar: {ex.Message}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
