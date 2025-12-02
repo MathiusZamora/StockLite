@@ -196,13 +196,13 @@ namespace StockLite
                             new SqlParameter("@id", usuarioEditar.UsuarioId),
                             new SqlParameter("@nombre", txtNombre.Text.Trim()),
                             new SqlParameter("@usuario", txtUsuario.Text.Trim()),
-                            new SqlParameter("@hash", hash),           // ← HASH NUEVO
+                            new SqlParameter("@hash", hash),           
                             new SqlParameter("@rol", cmbRol.Text)
                         );
                     }
                     else
                     {
-                        // Solo cambia datos (sin tocar contraseña)
+                        
                         const string sql = """
                     EXEC ActualizarUsuario 
                         @id = @id,

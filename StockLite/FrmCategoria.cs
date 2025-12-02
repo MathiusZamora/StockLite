@@ -1,4 +1,5 @@
-﻿using StockLite.Models;
+﻿using Microsoft.Data.SqlClient;
+using StockLite.Models;
 using StockLite.Services;
 namespace StockLite
 {
@@ -18,6 +19,7 @@ namespace StockLite
                 dgvCategorias.DataSource = CategoriaService.GetAll();
                 dgvCategorias.Columns["Activo"].Visible = false; // Hide Activo column
 
+                dgvCategorias.ReadOnly = true;
                 dgvCategorias.RowHeadersVisible = false;
                 dgvCategorias.RowHeadersWidth = 4;
                 dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -74,22 +76,45 @@ namespace StockLite
             if (seleccionado == null)
             {
                 MessageBox.Show("Selecciona una categoría para eliminar.", "Atención",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (MessageBox.Show($"¿Eliminar la categoría '{seleccionado.Nombre}'?\n\nLos productos asociados quedarán sin categoría.",
-            "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+            // VALIDAR QUE NO TENGA PRODUCTOS ASOCIADOS
+            const string sqlCheck = "SELECT COUNT(*) FROM Producto WHERE CategoriaId = @id AND Activo = 1";
+            var count = (int)Db.Scalar(sqlCheck, new SqlParameter("@id", seleccionado.CategoriaId));
+
+            if (count > 0)
+            {
+                MessageBox.Show(
+                    $"No se puede eliminar la categoría '{seleccionado.Nombre}'.\n\n" +
+                    $"Hay {count} producto(s) asociado(s) a esta categoría.\n" +
+                    "Elimina o reasigna esos productos primero.",
+                    "Eliminación no permitida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            if (MessageBox.Show(
+                $"¿Estás seguro de eliminar la categoría '{seleccionado.Nombre}'?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
                     CategoriaService.Delete(seleccionado.CategoriaId);
+
+                    MessageBox.Show("Categoría eliminada correctamente.", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     CargarCategorias();
                     LimpiarCampos();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"No se puede eliminar: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Error al eliminar: {ex.Message}", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
