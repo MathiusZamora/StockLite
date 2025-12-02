@@ -97,11 +97,7 @@ namespace StockLite
 
         }
 
-        private void pnlReportes_Click(object sender, EventArgs e)
-        {
-            new FrmReportes().ShowDialog();
-
-        }
+        
         private void pnlProveedores_Click(object sender, EventArgs e)
         {
             new FrmProveedor().ShowDialog();
