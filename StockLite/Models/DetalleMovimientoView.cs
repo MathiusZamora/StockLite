@@ -8,6 +8,8 @@ namespace StockLite.Models
 {
     public class DetalleMovimientoView
     {
+        public int IdDetalle { get; set; }
+        public int IdMovimiento { get; set; }
         public int ProductoId { get; set; }
         public string Codigo { get; set; } = "";
         public string Nombre { get; set; } = "";
@@ -15,6 +17,7 @@ namespace StockLite.Models
         public decimal PrecioCompra { get; set; }
         public decimal PrecioVenta { get; set; }
         public decimal Subtotal => Cantidad * (EsEntrada ? PrecioCompra : PrecioVenta);
+        public int IdUsuarioRegistro { get; set; }
 
 
         // Solo para saber si es entrada o salida al calcular subtotal

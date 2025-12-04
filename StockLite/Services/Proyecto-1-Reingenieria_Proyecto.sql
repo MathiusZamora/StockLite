@@ -425,7 +425,7 @@ GO
 --Movimiento Stock
 CREATE PROC InsertarMovimientoStock
 @esEntrada BIT,
-@clienteId INT,
+@clienteId INT = null,
 @observacion VARCHAR(300),
 @creadoPor INT
 AS
@@ -435,6 +435,88 @@ BEGIN
 	SELECT SCOPE_IDENTITY();
 END
 GO
+CREATE PROC ActualizarMovimientoStock
+@IdMovimiento INT,
+@esEntrada BIT,
+@Observacion VARCHAR(300),
+@IdUsuarioActualiza INT
+AS
+BEGIN
+	UPDATE MovimientoStock 
+SET 
+	EsEntrada = @esEntrada
+   ,Observacion = @Observacion
+   ,ModificadoPor = @IdUsuarioActualiza
+   ,FechaModificacion = GETDATE()
+WHERE MovimientoId = @IdMovimiento;
+SELECT SCOPE_IDENTITY();
+END
+GO
+--
+CREATE PROC ListarEntradaMovimientoStock
+@Todos BIT,
+@IdMovimiento INT = 0
+AS
+BEGIN
+	IF(@Todos=1)
+	BEGIN
+    	SELECT 
+			   f.MovimientoId
+			  ,f.Fecha
+			  ,f.EsEntrada
+			  ,f.Observacion
+			  FROM MovimientoStock f
+			  WHERE  f.Activo = 1 
+			  AND f.EsEntrada = 1  
+    END
+	ELSE
+	BEGIN
+    	SELECT 
+			  
+			  f.MovimientoId
+			  ,f.Fecha
+			  ,f.EsEntrada
+			  ,f.Observacion
+			  FROM MovimientoStock f
+			  WHERE  f.Activo = 1 
+			  AND f.MovimientoId = @IdMovimiento
+			  AND f.EsEntrada = 1  
+    END
+END
+GO
+
+CREATE PROC ListarSalidaMovimientoStock
+@Todos BIT,
+@IdMovimiento INT = 0
+AS
+BEGIN
+	IF(@Todos=1)
+	BEGIN
+    	SELECT 
+			   f.MovimientoId
+			  ,f.Fecha
+			  ,f.EsEntrada
+			  ,f.Observacion
+			  FROM MovimientoStock f
+			  WHERE  f.Activo = 1 
+			  AND f.EsEntrada = 0  
+    END
+	ELSE
+	BEGIN
+    	SELECT 
+			  
+			  f.MovimientoId
+			  ,f.Fecha
+			  ,f.EsEntrada
+			  ,f.Observacion
+			  FROM MovimientoStock f
+			  WHERE  f.Activo = 1 
+			  AND f.MovimientoId = @IdMovimiento
+			  AND f.EsEntrada = 0  
+    END
+END
+GO
+--
  
 --DetalleMovimientoStock
 CREATE PROC InsertarDetalleMovimientoStock
@@ -449,26 +531,82 @@ BEGIN
 	INSERT INTO DetalleMovimientoStock
     (MovimientoId, ProductoId, Cantidad, PrecioCompra, PrecioVenta, CreadoPor, FechaCreacion)
 VALUES (@movId, @prodId, @cant, @pCompra, @pVenta, @creadoPor, SYSDATETIME())
+	
+	SELECT SCOPE_IDENTITY();
 END
 GO
 
-CREATE PROC SumarStock
-@cant INT,
-@id INT
+------
+CREATE PROC ListarEntradaDetalleMovimientoStock
+    @Todos BIT = 0,
+    @IdMovimiento INT = NULL
 AS
 BEGIN
-	UPDATE dbo.Producto SET Stock = Stock + @cant WHERE ProductoId = @id
+    SELECT 
+        df.DetalleId,
+        df.ProductoId,
+		P.Nombre,
+        df.MovimientoId,
+        f.Fecha,
+        df.Cantidad,
+		df.PrecioVenta,
+		df.PrecioCompra
+    FROM DetalleMovimientoStock df
+    INNER JOIN Producto p ON df.ProductoId = p.ProductoId
+    INNER JOIN MovimientoStock f ON df.MovimientoId = f.MovimientoId
+    WHERE p.Activo = 1 
+        AND f.Activo = 1 
+        AND df.Activo = 1
+        AND (@Todos = 1 OR df.MovimientoId = @IdMovimiento)
+		AND f.EsEntrada = 1
+END
+GO
+
+CREATE PROC ListarSalidaDetalleMovimientoStock
+    @Todos BIT = 0,
+    @IdMovimiento INT = NULL
+AS
+BEGIN
+    SELECT 
+        df.DetalleId,
+        df.ProductoId,
+		P.Nombre,
+        df.MovimientoId,
+        f.Fecha,
+        df.Cantidad,
+		df.PrecioVenta,
+		df.PrecioCompra
+    FROM DetalleMovimientoStock df
+    INNER JOIN Producto p ON df.ProductoId = p.ProductoId
+    INNER JOIN MovimientoStock f ON df.MovimientoId = f.MovimientoId
+    WHERE p.Activo = 1 
+        AND f.Activo = 1 
+        AND df.Activo = 1
+        AND (@Todos = 1 OR df.MovimientoId = @IdMovimiento)
+		AND f.EsEntrada = 0
+END
+GO
+-------
+CREATE PROC ActualizarStock
+    @cant INT,
+    @id INT,
+    @esEntrada BIT  
+AS
+BEGIN
+    IF @esEntrada = 1
+        UPDATE dbo.Producto 
+        SET Stock = ISNULL(Stock, 0) + @cant 
+        WHERE ProductoId = @id
+    ELSE
+        UPDATE dbo.Producto 
+        SET Stock = ISNULL(Stock, 0) - @cant 
+        WHERE ProductoId = @id
+        AND ISNULL(Stock, 0) >= @cant  
+    
+    RETURN @@ROWCOUNT
 END 
 GO
 
-CREATE PROC RestarStock
-@cant INT,
-@id INT
-AS
-BEGIN
-	UPDATE dbo.Producto SET Stock = Stock - @cant WHERE ProductoId = @id
-END 
-GO
 
 CREATE PROC BuscarHistorial
     @desde DATETIME2,

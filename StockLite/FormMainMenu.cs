@@ -21,12 +21,12 @@ namespace StockLite
             toolStripStatusLabel1.Text = $"Usuario: {_usuario.NombreUsuario}";
             toolStripStatusLabel2.Text = $"Rol: {_usuario.Rol}";
 
-           
-            ActualizarReloj(); 
+
+            ActualizarReloj();
 
             // Crear y configurar el Timer
             relojTimer = new System.Windows.Forms.Timer();
-            relojTimer.Interval = 1000; 
+            relojTimer.Interval = 1000;
             relojTimer.Tick += (s, args) => ActualizarReloj();
             relojTimer.Start();
 
@@ -39,7 +39,7 @@ namespace StockLite
             UsuarioActual = _usuario;
         }
 
-       
+
         private void ActualizarReloj()
         {
             toolStripStatusLabel3.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy - HH:mm:ss");
@@ -101,8 +101,12 @@ namespace StockLite
 
         private void pnlStock_Click(object sender, EventArgs e)
         {
-            new FrmMovimientoStock().ShowDialog();
-
+            //new FrmMovimientoStock().ShowDialog();
+            new FrmEntradaMovimientoStock().ShowDialog();
+        }
+        private void pnlSalida_Click(object sender, EventArgs e)
+        {
+            new FrmSalidaMovimientoStock().ShowDialog();
         }
 
         private void pnlHistorial_Click(object sender, EventArgs e)
@@ -111,12 +115,14 @@ namespace StockLite
 
         }
 
-        
+
         private void pnlProveedores_Click(object sender, EventArgs e)
         {
             new FrmProveedor().ShowDialog();
 
 
         }
+
+        
     }
 }

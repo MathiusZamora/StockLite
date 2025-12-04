@@ -8,6 +8,30 @@ namespace StockLite.Services
     {
         private const string CS = "Server=localhost;Database=StockLiteDB;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
 
+        public static DataTable ListarProductos(bool Todos, int IdProducto)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection Conexion = new SqlConnection(CS);
+                Conexion.Open();
+                SqlCommand Cmd = new SqlCommand("ListarProductos", Conexion);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("@Todos", Todos);
+                Cmd.Parameters.AddWithValue("@IdProducto", IdProducto);
+                SqlDataAdapter Da = new SqlDataAdapter(Cmd);
+                Da.Fill(dt);
+                Conexion.Close();
+                Conexion.Dispose();
+                Da.Dispose();
+                return dt;
+            }
+            catch
+            {
+                return dt;
+            }
+
+        }
         public static List<Producto> GetAll()
         {
             var lista = new List<Producto>();

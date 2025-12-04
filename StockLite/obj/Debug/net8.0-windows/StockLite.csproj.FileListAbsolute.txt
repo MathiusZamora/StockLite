@@ -274,7 +274,6 @@ E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLit
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmMovimientoStock.resources
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProducto.resources
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProveedor.resources
-E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmReportes.resources
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.Properties.Resources.resources
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.csproj.GenerateResource.cache
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.GeneratedMSBuildEditorConfig.editorconfig
@@ -294,3 +293,5 @@ C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLit
 C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmMovimientoStock.resources
 C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProducto.resources
 C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProveedor.resources
+E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmEntradaMovimientoStock.resources
+E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmSalidaMovimientoStock.resources

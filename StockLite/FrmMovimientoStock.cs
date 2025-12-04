@@ -169,47 +169,47 @@ namespace StockLite
         
         private void btnEntrada_Click(object sender, EventArgs e)
         {
-            if (productoEntrada == null)
-            {
-                MessageBox.Show("Debe seleccionar un producto para la entrada.", "Falta producto",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (productoEntrada == null)
+            //{
+            //    MessageBox.Show("Debe seleccionar un producto para la entrada.", "Falta producto",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
            
-            int? clienteId = null;  // ← ¡¡SIEMPRE NULL para entrada!!
+            //int? clienteId = null;  // ← ¡¡SIEMPRE NULL para entrada!!
 
-            try
-            {
-                MovimientoStockService.Insert(
-                    esEntrada: true,                    // Entrada
-                    clienteId: clienteId,               // NULL
-                    observacion: txtObsE.Text.Trim(),   // Observación
-                    detalles: new List<DetalleMovimientoView>
-                    {
-                new()
-                {
-                    ProductoId = productoEntrada.ProductoId,
-                    Cantidad = (int)nudCantidadE.Value,
-                    PrecioCompra = productoEntrada.PrecioCosto,
-                    PrecioVenta = productoEntrada.PrecioVenta
-                }
-                    });
+            //try
+            //{
+            //    MovimientoStockService.Insert(
+            //        esEntrada: true,                    // Entrada
+            //        clienteId: clienteId,               // NULL
+            //        observacion: txtObsE.Text.Trim(),   // Observación
+            //        detalles: new List<DetalleMovimientoView>
+            //        {
+            //    new()
+            //    {
+            //        ProductoId = productoEntrada.ProductoId,
+            //        Cantidad = (int)nudCantidadE.Value,
+            //        PrecioCompra = productoEntrada.PrecioCosto,
+            //        PrecioVenta = productoEntrada.PrecioVenta
+            //    }
+            //        });
 
-                MessageBox.Show("Entrada registrada correctamente.", "Éxito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    MessageBox.Show("Entrada registrada correctamente.", "Éxito",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // LIMPIAR
-                nudCantidadE.Value = 1;
-                txtObsE.Clear();
-                cmbProductoEntrada.SelectedIndex = -1;
-                CargarCombos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al registrar entrada: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //    // LIMPIAR
+            //    nudCantidadE.Value = 1;
+            //    txtObsE.Clear();
+            //    cmbProductoEntrada.SelectedIndex = -1;
+            //    CargarCombos();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Error al registrar entrada: {ex.Message}", "Error",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
 
@@ -232,37 +232,37 @@ namespace StockLite
             // ✅ PARA SALIDA: clienteId real o NULL
             int? clienteId = cmbCliente.SelectedValue is int id && id > 0 ? id : null;
 
-            try
-            {
-                MovimientoStockService.Insert(
-                    esEntrada: false,                   // Salida
-                    clienteId: clienteId,               // Cliente real o NULL
-                    observacion: txtObsS.Text.Trim(),   // Observación
-                    detalles: new List<DetalleMovimientoView>
-                    {
-                new()
-                {
-                    ProductoId = productoSalida.ProductoId,
-                    Cantidad = (int)nudCantidadS.Value,
-                    PrecioCompra = productoSalida.PrecioCosto,
-                    PrecioVenta = productoSalida.PrecioVenta
-                }
-                    });
+            //try
+            //{
+            //    MovimientoStockService.Insert(
+            //        esEntrada: false,                   // Salida
+            //        clienteId: clienteId,               // Cliente real o NULL
+            //        observacion: txtObsS.Text.Trim(),   // Observación
+            //        detalles: new List<DetalleMovimientoView>
+            //        {
+            //    new()
+            //    {
+            //        ProductoId = productoSalida.ProductoId,
+            //        Cantidad = (int)nudCantidadS.Value,
+            //        PrecioCompra = productoSalida.PrecioCosto,
+            //        PrecioVenta = productoSalida.PrecioVenta
+            //    }
+            //        });
 
-                MessageBox.Show("Salida registrada correctamente.", "Éxito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    MessageBox.Show("Salida registrada correctamente.", "Éxito",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // LIMPIAR
-                nudCantidadS.Value = 1;
-                txtObsS.Clear();
-                cmbProductoSalida.SelectedIndex = -1;
-                CargarCombos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al registrar salida: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //    // LIMPIAR
+            //    nudCantidadS.Value = 1;
+            //    txtObsS.Clear();
+            //    cmbProductoSalida.SelectedIndex = -1;
+            //    CargarCombos();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Error al registrar salida: {ex.Message}", "Error",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
     }
 }
