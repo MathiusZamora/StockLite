@@ -214,11 +214,11 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            label3.Location = new Point(45, 113);
+            label3.Location = new Point(20, 113);
             label3.Name = "label3";
-            label3.Size = new Size(61, 19);
+            label3.Size = new Size(112, 19);
             label3.TabIndex = 1;
-            label3.Text = "Clientes";
+            label3.Text = "Departamentos";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox4
@@ -381,6 +381,8 @@
             pnlSalida.Size = new Size(150, 171);
             pnlSalida.TabIndex = 6;
             pnlSalida.Click += pnlSalida_Click;
+            pnlSalida.MouseEnter += PanelHover_Enter;
+            pnlSalida.MouseLeave += PanelHover_Leave;
             // 
             // pictureBox8
             // 
@@ -391,6 +393,7 @@
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 0;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += pnlSalida_Click;
             // 
             // label8
             // 

@@ -165,7 +165,6 @@
             nudCantidadE.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             nudCantidadE.Location = new Point(15, 241);
             nudCantidadE.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
-            nudCantidadE.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudCantidadE.Name = "nudCantidadE";
             nudCantidadE.Size = new Size(100, 25);
             nudCantidadE.TabIndex = 7;

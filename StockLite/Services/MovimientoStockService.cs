@@ -35,6 +35,7 @@ namespace StockLite.Services
             }
 
         }
+
         public static bool ActualizarMovimientoStock(MovimientoStock Entidad)
         {
             try
@@ -58,6 +59,12 @@ namespace StockLite.Services
 
         public static int InsertarDetalleMovimientoStock(DetalleMovimientoView Entidad)
         {
+            // VALIDACIÓN: No permitir 0 ni negativos
+            if (Entidad.Cantidad <= 0)
+            {
+                throw new ArgumentException("La cantidad debe ser mayor a 0.");
+            }
+
             try
             {
                 SqlConnection Conexion = new SqlConnection(CS);
@@ -79,8 +86,16 @@ namespace StockLite.Services
             }
 
         }
+
         public static bool ActualizarStock(int Cantidad, int IdProducto, bool esEntrada)
         {
+            // VALIDACIÓN: No permitir 0 ni negativos
+            if (Cantidad <= 0)
+            {
+                Console.WriteLine("Cantidad inválida para actualizar stock.");
+                return false;
+            }
+
             try
             {
                 using (SqlConnection Conexion = new SqlConnection(CS))
@@ -105,74 +120,6 @@ namespace StockLite.Services
                 return false;
             }
         }
-
-
-
-        //public static int Insert(bool esEntrada, int? clienteId, string observacion, List<DetalleMovimientoView> detalles)
-        //{
-        //    using var cn = new SqlConnection(CS);
-        //    cn.Open();
-        //    using var tran = cn.BeginTransaction();
-
-        //    try
-        //    {
-        //        string sqlCab = @"
-        //            EXEC InsertarMovimientoStock
-        //            @esEntrada = @esEntrada,
-        //            @clienteId = @clienteId,
-        //            @observacion = @observacion,
-        //            @creadoPor = @creadoPor
-        //            ";
-
-        //        using var cmdCab = new SqlCommand(sqlCab, cn, tran);
-        //        cmdCab.Parameters.Add("@esEntrada", SqlDbType.Bit).Value = esEntrada;
-        //        cmdCab.Parameters.Add("@clienteId", SqlDbType.Int).Value = clienteId.HasValue ? clienteId : (object)DBNull.Value;
-        //        cmdCab.Parameters.Add("@observacion", SqlDbType.VarChar, 300).Value = observacion ?? (object)DBNull.Value;
-        //        cmdCab.Parameters.Add("@creadoPor", SqlDbType.Int).Value = FormMainMenu.UsuarioActual!.UsuarioId;
-
-        //        int movimientoId = Convert.ToInt32(cmdCab.ExecuteScalar());
-
-        //        foreach (var d in detalles)
-        //        {
-        //            string sqlDet = @"
-        //                EXEC InsertarDetalleMovimientoStock
-        //                @movId = @movId,
-        //                @prodId = @prodId,
-        //                @cant = @cant,
-        //                @pCompra = @pCompra,
-        //                @pVenta = @pVenta,
-        //                @creadoPor = @creadoPor
-        //                ";
-
-        //            using var cmdDet = new SqlCommand(sqlDet, cn, tran);
-        //            cmdDet.Parameters.Add("@movId", SqlDbType.Int).Value = movimientoId;
-        //            cmdDet.Parameters.Add("@prodId", SqlDbType.Int).Value = d.ProductoId;
-        //            cmdDet.Parameters.Add("@cant", SqlDbType.Int).Value = d.Cantidad;
-        //            cmdDet.Parameters.Add("@pCompra", SqlDbType.Float).Value = (double)d.PrecioCompra;
-        //            cmdDet.Parameters.Add("@pVenta", SqlDbType.Float).Value = (double)d.PrecioVenta;
-        //            cmdDet.Parameters.Add("@creadoPor", SqlDbType.Int).Value = FormMainMenu.UsuarioActual!.UsuarioId;
-
-        //            cmdDet.ExecuteNonQuery();
-
-        //            string sqlStock = esEntrada
-        //                ? "EXEC SumarStock @cant = @cant, @id = @id"
-        //                : "EXEC RestarStock @cant = @cant, @id = @id";
-
-        //            using var cmdStock = new SqlCommand(sqlStock, cn, tran);
-        //            cmdStock.Parameters.Add("@cant", SqlDbType.Int).Value = d.Cantidad;
-        //            cmdStock.Parameters.Add("@id", SqlDbType.Int).Value = d.ProductoId;
-        //            cmdStock.ExecuteNonQuery();
-        //        }
-
-        //        tran.Commit();
-        //        return movimientoId;
-        //    }
-        //    catch
-        //    {
-        //        tran.Rollback();
-        //        throw;
-        //    }
-        //}
 
         public static DataTable ListarEntradaMovimientoStock(bool Todos, int IdMovimiento)
         {
@@ -224,7 +171,6 @@ namespace StockLite.Services
 
         }
 
-        //Detalles
         public static DataTable ListarEntradaDetalleMovimientoStock(bool Todos, int IdMovimiento)
         {
             DataTable dt = new DataTable();
@@ -249,6 +195,7 @@ namespace StockLite.Services
             }
 
         }
+
         public static DataTable ListarSalidaDetalleMovimientoStock(bool Todos, int IdMovimiento)
         {
             DataTable dt = new DataTable();
@@ -273,8 +220,6 @@ namespace StockLite.Services
             }
 
         }
-
-
 
         public static List<HistorialView> GetHistorial(DateTime desde, DateTime hasta, int? productoId, int? clienteId, int? proveedorId)
         {

@@ -142,7 +142,7 @@
             MinimizeBox = false;
             Name = "FrmCliente";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Clientes - StockLite";
+            Text = "Departamentos - StockLite";
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();

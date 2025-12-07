@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using StockLite.Models;
 using System.Data;
+using System.Windows.Forms;
 
 namespace StockLite
 {
@@ -18,10 +19,8 @@ namespace StockLite
 
         private void ConfigurarDataGrid()
         {
-
             dgvUsuarios.AutoGenerateColumns = false;
             dgvUsuarios.Columns.Clear();
-
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "UsuarioId",
@@ -30,7 +29,6 @@ namespace StockLite
                 Width = 60,
                 ReadOnly = true
             });
-
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Nombre",
@@ -39,7 +37,6 @@ namespace StockLite
                 Width = 200,
                 ReadOnly = true
             });
-
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Usuario",
@@ -48,7 +45,6 @@ namespace StockLite
                 Width = 120,
                 ReadOnly = true
             });
-
             dgvUsuarios.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Rol",
@@ -57,16 +53,13 @@ namespace StockLite
                 Width = 100,
                 ReadOnly = true
             });
-
-            // NO agregamos columna Activo → nunca aparece
         }
 
         private void CargarUsuarios()
         {
-            const string sql = " EXEC ListarUsuarios;";
+            const string sql = "EXEC ListarUsuarios;";
             var dt = Db.Query(sql);
             dgvUsuarios.DataSource = dt;
-
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.RowHeadersWidth = 4;
         }
@@ -95,8 +88,6 @@ namespace StockLite
                 return;
             }
 
-            // Si es un usuario NUEVO → contraseña OBLIGATORIA
-            // Si es edición → contraseña OPCIONAL (solo si la escribe)
             bool esNuevo = usuarioEditar == null;
             bool tieneClave = !string.IsNullOrWhiteSpace(txtClave.Text);
 
@@ -107,69 +98,46 @@ namespace StockLite
                 return;
             }
 
-            //VALIDACIÓN: Usuario y Nombre únicos
-            string nombreIngresado = txtNombre.Text.Trim();
+            // VALIDACIÓN: Nombre de usuario único (incluso si está desactivado)
             string usuarioIngresado = txtUsuario.Text.Trim();
 
-            // Consulta para verificar duplicados
-            const string sqlCheck = """
-            SELECT UsuarioId, Nombre, Usuario 
-            FROM dbo.Usuario 
-            WHERE Activo = 1 
-            AND (Usuario = @usuario OR Nombre = @nombre)
-            """;
+            const string sqlCheckUsuario = @"
+                SELECT COUNT(1) 
+                FROM dbo.Usuario 
+                WHERE Usuario = @usuario 
+                  AND (@id IS NULL OR UsuarioId != @id)";
 
-            var dtCheck = Db.Query(sqlCheck,
-                new SqlParameter("@usuario", usuarioIngresado),
-                new SqlParameter("@nombre", nombreIngresado));
-
-            foreach (DataRow row in dtCheck.Rows)
+            var parametrosUsuario = new[]
             {
-                int idExistente = Convert.ToInt32(row["UsuarioId"]);
+                new SqlParameter("@usuario", usuarioIngresado),
+                new SqlParameter("@id", usuarioEditar?.UsuarioId ?? (object)DBNull.Value)
+            };
 
-                
-                if (!esNuevo && idExistente == usuarioEditar.UsuarioId)
-                    continue;
+            int existeUsuario = Convert.ToInt32(Db.Scalar(sqlCheckUsuario, parametrosUsuario));
 
-                string usuarioDb = row["Usuario"].ToString()!;
-                string nombreDb = row["Nombre"].ToString()!;
-
-                if (string.Equals(usuarioDb, usuarioIngresado, StringComparison.OrdinalIgnoreCase))
-                {
-                    MessageBox.Show("El nombre de usuario ya está en uso. Elige otro.", "Usuario duplicado",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtUsuario.Focus();
-                    txtUsuario.SelectAll();
-                    return;
-                }
-
-                if (string.Equals(nombreDb, nombreIngresado, StringComparison.OrdinalIgnoreCase))
-                {
-                    MessageBox.Show("Ya existe un usuario con este nombre completo.", "Nombre duplicado",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNombre.Focus();
-                    txtNombre.SelectAll();
-                    return;
-                }
+            if (existeUsuario > 0)
+            {
+                MessageBox.Show("Este nombre de usuario no esta disponible.\nPor favor elige otro.",
+                    "Usuario duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUsuario.Focus();
+                txtUsuario.SelectAll();
+                return;
             }
 
-
-            // Generar hash SOLO si hay contraseña (nuevo o cambio de clave)
-            string hash = tieneClave ? BCrypt.Net.BCrypt.HashPassword(txtClave.Text.Trim()) : null;
+            // Generar hash SOLO si hay contraseña
+            string? hash = tieneClave ? BCrypt.Net.BCrypt.HashPassword(txtClave.Text.Trim()) : null;
 
             try
             {
                 if (esNuevo)
                 {
-                    // === INSERTAR NUEVO USUARIO ===
                     const string sql = """
-                EXEC InsertarUsuario 
-                    @nombre = @nombre,
-                    @usuario = @usuario,
-                    @hash = @hash,
-                    @rol = @rol
-                """;
-
+                        EXEC InsertarUsuario
+                            @nombre = @nombre,
+                            @usuario = @usuario,
+                            @hash = @hash,
+                            @rol = @rol
+                        """;
                     Db.Exec(sql,
                         new SqlParameter("@nombre", txtNombre.Text.Trim()),
                         new SqlParameter("@usuario", txtUsuario.Text.Trim()),
@@ -179,39 +147,34 @@ namespace StockLite
                 }
                 else
                 {
-                    // === ACTUALIZAR USUARIO EXISTENTE ===
                     if (tieneClave)
                     {
-                        // Cambia nombre de usuario + contraseña
                         const string sql = """
-                    EXEC ActualizarUsuario 
-                        @id = @id,
-                        @nombre = @nombre,
-                        @usuario = @usuario,
-                        @hash = @hash,
-                        @rol = @rol
-                    """;
-
+                            EXEC ActualizarUsuario
+                                @id = @id,
+                                @nombre = @nombre,
+                                @usuario = @usuario,
+                                @hash = @hash,
+                                @rol = @rol
+                            """;
                         Db.Exec(sql,
                             new SqlParameter("@id", usuarioEditar.UsuarioId),
                             new SqlParameter("@nombre", txtNombre.Text.Trim()),
                             new SqlParameter("@usuario", txtUsuario.Text.Trim()),
-                            new SqlParameter("@hash", hash),           
+                            new SqlParameter("@hash", hash),
                             new SqlParameter("@rol", cmbRol.Text)
                         );
                     }
                     else
                     {
-                        
                         const string sql = """
-                    EXEC ActualizarUsuario 
-                        @id = @id,
-                        @nombre = @nombre,
-                        @usuario = @usuario,
-                        @hash = NULL,        -- ← Indica que NO cambie la contraseña
-                        @rol = @rol
-                    """;
-
+                            EXEC ActualizarUsuario
+                                @id = @id,
+                                @nombre = @nombre,
+                                @usuario = @usuario,
+                                @hash = NULL,
+                                @rol = @rol
+                            """;
                         Db.Exec(sql,
                             new SqlParameter("@id", usuarioEditar.UsuarioId),
                             new SqlParameter("@nombre", txtNombre.Text.Trim()),
@@ -236,7 +199,6 @@ namespace StockLite
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
             var row = dgvUsuarios.Rows[e.RowIndex];
             if (row.Cells["UsuarioId"].Value == null) return;
 
@@ -268,7 +230,6 @@ namespace StockLite
             {
                 const string sql = "EXEC AnularUsuario @id";
                 Db.Exec(sql, new SqlParameter("@id", usuarioEditar.UsuarioId));
-
                 MessageBox.Show("Usuario desactivado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarUsuarios();
                 LimpiarCampos();

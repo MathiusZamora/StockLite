@@ -209,7 +209,6 @@ C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-win
 C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmMovimientoStock.resources
 C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmHistorialStock.resources
 C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProveedor.resources
-C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmReportes.resources
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\bin\Debug\net8.0-windows\StockLite.exe
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\bin\Debug\net8.0-windows\StockLite.deps.json
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\bin\Debug\net8.0-windows\StockLite.runtimeconfig.json
@@ -295,3 +294,5 @@ C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLit
 C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmProveedor.resources
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmEntradaMovimientoStock.resources
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmSalidaMovimientoStock.resources
+C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmEntradaMovimientoStock.resources
+C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmSalidaMovimientoStock.resources

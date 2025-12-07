@@ -12,7 +12,6 @@ CREATE TABLE dbo.Usuario(
   Usuario VARCHAR(50) NOT NULL UNIQUE,
   ClaveHash VARCHAR(200) NOT NULL,
   Rol VARCHAR(50) NOT NULL,
-  --Pistas Auditoria
   Activo BIT NOT NULL Default 1
 );
 
@@ -39,21 +38,37 @@ CREATE TABLE dbo.Categoria(
 
 );
 
-CREATE TABLE dbo.Producto(
-  ProductoId INT IDENTITY PRIMARY KEY,
-  CategoriaId INT NOT NULL FOREIGN KEY REFERENCES dbo.Categoria(CategoriaId),
-  Codigo VARCHAR(50) NOT NULL UNIQUE,
-  Nombre VARCHAR(200) NOT NULL,
-  CostoActual FLOAT NOT NULL,
-  PrecioActual FLOAT NOT NULL,
-  PrecioVenta FLOAT NOT NULL DEFAULT 0,
-  Stock INT NOT NULL DEFAULT 0,
-  CreadoPor INT NULL,
-  FechaCreacion DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
-  ModificadoPor INT NULL,
-  FechaModificacion DATETIME2 NULL,
-  Activo BIT NOT NULL Default 1
-  );
+CREATE TABLE Proveedor (
+    ProveedorId INT IDENTITY PRIMARY KEY,
+    Nombre VARCHAR(150) NOT NULL,
+    Contacto VARCHAR(100),
+    Telefono VARCHAR(20),
+    Email VARCHAR(100),
+    Activo BIT DEFAULT 1,
+    CreadoPor INT,
+    FechaCreacion DATETIME2 DEFAULT SYSDATETIME()
+);
+
+CREATE TABLE Producto (
+    ProductoId INT IDENTITY PRIMARY KEY,
+    CategoriaId INT NOT NULL FOREIGN KEY REFERENCES dbo.Categoria(CategoriaId),
+    Codigo VARCHAR(50) NOT NULL UNIQUE,
+    Nombre VARCHAR(200) NOT NULL,
+    CostoActual FLOAT NOT NULL,
+    PrecioActual FLOAT NOT NULL,
+    PrecioVenta FLOAT NOT NULL DEFAULT 0,
+    Stock INT NOT NULL DEFAULT 0,
+    CreadoPor INT NULL,
+    FechaCreacion DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    ModificadoPor INT NULL,
+    FechaModificacion DATETIME2 NULL,
+    Activo BIT NOT NULL Default 1,
+    ProveedorId INT NULL FOREIGN KEY REFERENCES Proveedor(ProveedorId)
+);
+
+
+
+
 CREATE INDEX IX_Producto_Categoria ON dbo.Producto(CategoriaId);
 
 CREATE TABLE dbo.MovimientoStock(
@@ -82,22 +97,6 @@ CREATE TABLE dbo.DetalleMovimientoStock(
   FechaModificacion DATETIME2 NULL,
   Activo BIT NOT NULL Default 1
 );
-
-CREATE TABLE Proveedor (
-    ProveedorId INT IDENTITY PRIMARY KEY,
-    Nombre VARCHAR(150) NOT NULL,
-    Contacto VARCHAR(100),
-    Telefono VARCHAR(20),
-    Email VARCHAR(100),
-    Activo BIT DEFAULT 1,
-    CreadoPor INT,
-    FechaCreacion DATETIME2 DEFAULT SYSDATETIME()
-);
-
-
-ALTER TABLE Producto ADD ProveedorId INT NULL 
-    FOREIGN KEY REFERENCES Proveedor(ProveedorId);
-
 
 
 
@@ -435,6 +434,8 @@ BEGIN
 	SELECT SCOPE_IDENTITY();
 END
 GO
+
+
 CREATE PROC ActualizarMovimientoStock
 @IdMovimiento INT,
 @esEntrada BIT,
@@ -609,40 +610,6 @@ GO
 
 
 CREATE PROC BuscarHistorial
-    @desde DATETIME2,
-    @hasta DATETIME2,
-    @productoId INT = NULL,
-    @clienteId INT = NULL,
-    @proveedorId INT = NULL
-AS
-BEGIN
-    SELECT 
-        m.FechaCreacion AS Fecha,
-        CASE WHEN m.EsEntrada = 1 THEN 'ENTRADA' ELSE 'SALIDA' END AS Tipo,
-        p.Codigo,
-        p.Nombre AS Producto,
-        d.Cantidad,
-        ISNULL(c.Nombre, 'Sin cliente') AS Cliente,
-        ISNULL(pr.Nombre, 'Sin proveedor') AS Proveedor,
-        ISNULL(u.Usuario, 'Desconocido') AS Usuario,
-        ISNULL(m.Observacion, '') AS Observacion
-    FROM MovimientoStock m
-    INNER JOIN DetalleMovimientoStock d ON m.MovimientoId = d.MovimientoId
-    INNER JOIN Producto p ON d.ProductoId = p.ProductoId
-    LEFT JOIN Cliente c ON m.ClienteId = c.ClienteId
-    LEFT JOIN Proveedor pr ON p.ProveedorId = pr.ProveedorId
-    INNER JOIN Usuario u ON m.CreadoPor = u.UsuarioId
-    WHERE m.FechaCreacion >= @desde 
-      AND m.FechaCreacion < DATEADD(DAY, 1, @hasta)
-      AND (@productoId IS NULL OR d.ProductoId = @productoId)
-      AND (@clienteId IS NULL OR m.ClienteId = @clienteId)
-      AND (@proveedorId IS NULL OR p.ProveedorId = @proveedorId)
-    ORDER BY m.FechaCreacion DESC
-END
-GO
-
-
-CREATE PROC BuscarHistorial
 @desde datetime2,
 @hasta dateTime2,
 @productoId INT NULL,
@@ -674,3 +641,4 @@ WHERE m.FechaCreacion >= @desde
 ORDER BY m.FechaCreacion DESC
 END
 GO
+

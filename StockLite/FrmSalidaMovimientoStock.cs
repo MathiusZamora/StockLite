@@ -35,7 +35,7 @@ namespace StockLite
         }
         private void CargarClientes()
         {
-            var lista = new List<Cliente> { new Cliente { ClienteId = 0, Nombre = "Sin cliente" } };
+            var lista = new List<Cliente> { new Cliente { ClienteId = 0, Nombre = "Sin Departamento" } };
             lista.AddRange(ClienteService.GetAll());
             cmbCliente.DataSource = null;
             cmbCliente.DataSource = lista;

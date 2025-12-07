@@ -96,9 +96,9 @@
             lblCliente.ForeColor = Color.FromArgb(73, 80, 87);
             lblCliente.Location = new Point(35, 87);
             lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(49, 15);
+            lblCliente.Size = new Size(89, 15);
             lblCliente.TabIndex = 1;
-            lblCliente.Text = "Cliente:";
+            lblCliente.Text = "Departamento";
             // 
             // cmbCliente
             // 
@@ -165,7 +165,6 @@
             nudCantidadS.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             nudCantidadS.Location = new Point(15, 225);
             nudCantidadS.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
-            nudCantidadS.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudCantidadS.Name = "nudCantidadS";
             nudCantidadS.Size = new Size(100, 25);
             nudCantidadS.TabIndex = 7;
