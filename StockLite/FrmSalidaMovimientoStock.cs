@@ -80,50 +80,40 @@ namespace StockLite
         {
             try
             {
-
                 MovimientoStock Entidad = new MovimientoStock();
+                Entidad.Observacion = txtObsS.Text.Trim();
 
+                
+                int? clienteId = cmbCliente.SelectedValue is int id && id > 0 ? id : null;
+                Entidad.ClienteId = clienteId;  
 
-                Entidad.Observacion = txtObsS.Text;
                 IdRequiza = Convert.ToInt32(txt_NumeroRequiza.Text);
-
 
                 if (IdRequiza > 0)
                 {
                     Entidad.IdMovimiento = IdRequiza;
-
                     Entidad.EsEntrada = esEntrada;
                     bool Exito = MovimientoStockService.ActualizarMovimientoStock(Entidad);
                     return Exito;
                 }
                 else
                 {
-                    int? clienteId = null;
-                    Entidad.ClienteId = clienteId;
                     Entidad.EsEntrada = esEntrada;
                     int ID = MovimientoStockService.InsertarMovimiento(Entidad);
 
-                    DataTable dtRequiza = new DataTable();
-                    MovimientoStock movimientoStock = new MovimientoStock();
-                    dtRequiza = MovimientoStockService.ListarSalidaMovimientoStock(false, ID);
-
-
-                    movimientoStock.IdMovimiento = Convert.ToInt32(dtRequiza.Rows[0]["MovimientoId"]);
-
-
-                    double NumeroRequiza = Convert.ToInt32(dtRequiza.Rows[0]["MovimientoId"]);
-                    string MostrarNumeroRequiza = Convert.ToString(NumeroRequiza);
-                    txt_NumeroRequiza.Text = MostrarNumeroRequiza;
-
-
-                    return ID > 0;
-
+                    if (ID > 0)
+                    {
+                        // Actualizar el número de requiza en el textbox
+                        txt_NumeroRequiza.Text = ID.ToString();
+                        IdRequiza = ID;
+                        return true;
+                    }
+                    return false;
                 }
-
             }
             catch (Exception Ex)
             {
-                MessageBox.Show($"Error al registrar Salida: {Ex.Message}", "Error",
+                MessageBox.Show($"Error al generar número de requiza: {Ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -262,7 +252,8 @@ namespace StockLite
         private void btnVerTodosS_Click(object sender, EventArgs e)
             => MostrarSelectorProducto(cmbProductoSalida, p =>
             {
-                productoEntrada = p;
+                productoSalida = p; 
+                cmbProductoSalida.Text = p.CodigoNombre;
 
             });
 
@@ -273,13 +264,40 @@ namespace StockLite
         {
             if (cmbProductoSalida.SelectedItem is Producto p)
             {
-                productoEntrada = p;
+                productoSalida = p;
 
             }
         }
 
         private void btnSalida_Click(object sender, EventArgs e)
         {
+
+            // Validar producto seleccionado
+            if (productoSalida == null)
+            {
+                MessageBox.Show("Debe seleccionar un producto para la salida.", "Falta producto",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // validacion stock
+            int cantidadSolicitada = (int)nudCantidadS.Value;
+            int stockDisponible = productoSalida.StockActual;
+
+            if (cantidadSolicitada > stockDisponible)
+            {
+                MessageBox.Show(
+                    $"Stock insuficiente.\n\n" +
+                    $"Cantidad solicitada: {cantidadSolicitada}\n" +
+                    $"Stock disponible: {stockDisponible} unidad(es)",
+                    "Error de stock",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop);
+
+                nudCantidadS.Focus();  
+                return;                
+            }
+
             if (GenerarNumeroFactura())
             {
                 if (Guardar())

@@ -285,6 +285,7 @@ namespace StockLite
 
         private void ActualizarProveedorEntrada()
         {
+
             if (productoEntrada != null && productoEntrada.ProveedorId.HasValue)
             {
                 cmbProveedor.SelectedValue = productoEntrada.ProveedorId.Value;
@@ -304,6 +305,16 @@ namespace StockLite
 
         private void btnEntrada_Click(object sender, EventArgs e)
         {
+
+
+            // Validar producto seleccionado
+            if (productoEntrada == null)
+            {
+                MessageBox.Show("Debe seleccionar un producto para la entrada.", "Falta producto",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (GenerarNumeroFactura())
             {
                 if (Guardar()){
