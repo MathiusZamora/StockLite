@@ -296,3 +296,5 @@ E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLit
 E:\CEPS\Trabajos Univalle\Reingenieria\ProyectoFinalStockLite\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmSalidaMovimientoStock.resources
 C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmEntradaMovimientoStock.resources
 C:\Users\Jader Mendoza\Desktop\Proyecto\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmSalidaMovimientoStock.resources
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmEntradaMovimientoStock.resources
+C:\Users\Mathius Z\Desktop\StockLite\StockLite\obj\Debug\net8.0-windows\StockLite.FrmSalidaMovimientoStock.resources

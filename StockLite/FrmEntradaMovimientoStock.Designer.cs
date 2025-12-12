@@ -221,6 +221,7 @@
             ClientSize = new Size(731, 463);
             Controls.Add(gridRequiza);
             Controls.Add(panelEntrada);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FrmEntradaMovimientoStock";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmEntradaMovimientoStock";

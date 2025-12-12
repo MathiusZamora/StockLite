@@ -25,6 +25,9 @@ namespace StockLite
             InitializeComponent();
             this.Text = "📦 Movimientos de Inventario - StockLite";
             CargarCombos();
+
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void CargarCombos()
@@ -50,6 +53,9 @@ namespace StockLite
                     gridRequiza.Columns[6].Visible = false;
                     gridRequiza.Columns[7].Visible = false;
 
+                    gridRequiza.RowHeadersVisible = false;
+                    gridRequiza.RowHeadersWidth = 4;
+                    gridRequiza.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
 
             }
