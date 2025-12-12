@@ -67,6 +67,7 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = Color.AliceBlue;
             menuStrip1.Items.AddRange(new ToolStripItem[] { cerrarSesiónToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
@@ -99,7 +100,7 @@
             // toolStripStatusLabel2
             // 
             toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            toolStripStatusLabel2.Size = new Size(684, 17);
+            toolStripStatusLabel2.Size = new Size(653, 17);
             toolStripStatusLabel2.Spring = true;
             toolStripStatusLabel2.Text = "Rol: ";
             toolStripStatusLabel2.TextAlign = ContentAlignment.MiddleRight;
@@ -411,6 +412,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(788, 518);
             Controls.Add(pnlSalida);
             Controls.Add(pnlHistorial);

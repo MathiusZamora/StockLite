@@ -49,7 +49,7 @@
             // 
             // panelEntrada
             // 
-            panelEntrada.BackColor = Color.FromArgb(248, 249, 250);
+            panelEntrada.BackColor = Color.AliceBlue;
             panelEntrada.BorderStyle = BorderStyle.FixedSingle;
             panelEntrada.Controls.Add(txt_NumeroRequiza);
             panelEntrada.Controls.Add(lblTituloEntrada);
@@ -218,6 +218,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(731, 463);
             Controls.Add(gridRequiza);
             Controls.Add(panelEntrada);
