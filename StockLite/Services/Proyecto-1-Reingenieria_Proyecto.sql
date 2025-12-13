@@ -614,16 +614,19 @@ CREATE PROC BuscarHistorial
 @hasta dateTime2,
 @productoId INT NULL,
 @clienteId INT NULL,
-@proveedorId INT NULL
+@proveedorId INT NULL,
+@movHistorialId INT NULL = NULL 
+
 AS
 BEGIN
 SELECT 
+	m.MovimientoId,
     m.FechaCreacion AS Fecha,
     CASE WHEN m.EsEntrada = 1 THEN 'ENTRADA' ELSE 'SALIDA' END AS Tipo,
     p.Codigo,
     p.Nombre AS Producto,
     d.Cantidad,
-    ISNULL(c.Nombre, 'Sin cliente') AS Cliente,
+    ISNULL(c.Nombre, 'Sin departamento') AS Cliente,
     ISNULL(pr.Nombre, 'Sin proveedor') AS Proveedor,
     ISNULL(u.Usuario, 'Desconocido') AS Usuario,
     ISNULL(m.Observacion, '') AS Observacion
@@ -638,6 +641,7 @@ WHERE m.FechaCreacion >= @desde
   AND (@productoId IS NULL OR d.ProductoId = @productoId)
   AND (@clienteId IS NULL OR m.ClienteId = @clienteId OR (m.ClienteId IS NULL AND @clienteId = 0))
   AND (@proveedorId IS NULL OR p.ProveedorId = @proveedorId)
+  AND (@movHistorialId IS NULL OR m.MovimientoId = @movHistorialId) 
 ORDER BY m.FechaCreacion DESC
 END
 GO

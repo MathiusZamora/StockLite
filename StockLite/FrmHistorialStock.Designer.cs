@@ -40,19 +40,28 @@
             dgvHistorial = new DataGridView();
             btnLimpiar = new Button();
             splitContainer1 = new SplitContainer();
+            label19 = new Label();
+            cmbmovHistorial = new ComboBox();
             label7 = new Label();
             cmbProveedor = new ComboBox();
-            label8 = new Label();
             button1 = new Button();
             dateTimePicker1 = new DateTimePicker();
             button2 = new Button();
             label4 = new Label();
-            comboBox2 = new ComboBox();
-            label3 = new Label();
             dateTimePicker2 = new DateTimePicker();
-            comboBox1 = new ComboBox();
             label5 = new Label();
-            label6 = new Label();
+            button3 = new Button();
+            dateTimePicker3 = new DateTimePicker();
+            button4 = new Button();
+            label11 = new Label();
+            dateTimePicker4 = new DateTimePicker();
+            label13 = new Label();
+            button5 = new Button();
+            dateTimePicker5 = new DateTimePicker();
+            button6 = new Button();
+            label15 = new Label();
+            dateTimePicker6 = new DateTimePicker();
+            label17 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvHistorial).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -101,7 +110,7 @@
             // 
             cmbProducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProducto.FormattingEnabled = true;
-            cmbProducto.Location = new Point(317, 23);
+            cmbProducto.Location = new Point(303, 23);
             cmbProducto.Name = "cmbProducto";
             cmbProducto.Size = new Size(121, 23);
             cmbProducto.TabIndex = 4;
@@ -110,7 +119,7 @@
             // 
             cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCliente.FormattingEnabled = true;
-            cmbCliente.Location = new Point(506, 23);
+            cmbCliente.Location = new Point(551, 23);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(121, 23);
             cmbCliente.TabIndex = 5;
@@ -118,7 +127,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(254, 31);
+            label1.Location = new Point(235, 31);
             label1.Name = "label1";
             label1.Size = new Size(56, 15);
             label1.TabIndex = 6;
@@ -127,11 +136,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(456, 31);
+            label2.Location = new Point(462, 31);
             label2.Name = "label2";
-            label2.Size = new Size(44, 15);
+            label2.Size = new Size(83, 15);
             label2.TabIndex = 7;
-            label2.Text = "Cliente";
+            label2.Text = "Departamento";
             // 
             // btnBuscar
             // 
@@ -151,7 +160,7 @@
             dgvHistorial.Dock = DockStyle.Fill;
             dgvHistorial.Location = new Point(0, 0);
             dgvHistorial.Name = "dgvHistorial";
-            dgvHistorial.Size = new Size(863, 369);
+            dgvHistorial.Size = new Size(883, 369);
             dgvHistorial.TabIndex = 9;
             // 
             // btnLimpiar
@@ -175,9 +184,10 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(label19);
+            splitContainer1.Panel1.Controls.Add(cmbmovHistorial);
             splitContainer1.Panel1.Controls.Add(label7);
             splitContainer1.Panel1.Controls.Add(cmbProveedor);
-            splitContainer1.Panel1.Controls.Add(label8);
             splitContainer1.Panel1.Controls.Add(btnLimpiar);
             splitContainer1.Panel1.Controls.Add(dtpDesde);
             splitContainer1.Panel1.Controls.Add(btnBuscar);
@@ -192,26 +202,52 @@
             splitContainer1.Panel1.Controls.Add(dateTimePicker1);
             splitContainer1.Panel1.Controls.Add(button2);
             splitContainer1.Panel1.Controls.Add(label4);
-            splitContainer1.Panel1.Controls.Add(comboBox2);
-            splitContainer1.Panel1.Controls.Add(label3);
             splitContainer1.Panel1.Controls.Add(dateTimePicker2);
-            splitContainer1.Panel1.Controls.Add(comboBox1);
             splitContainer1.Panel1.Controls.Add(label5);
-            splitContainer1.Panel1.Controls.Add(label6);
+            splitContainer1.Panel1.Controls.Add(button3);
+            splitContainer1.Panel1.Controls.Add(dateTimePicker3);
+            splitContainer1.Panel1.Controls.Add(button4);
+            splitContainer1.Panel1.Controls.Add(label11);
+            splitContainer1.Panel1.Controls.Add(dateTimePicker4);
+            splitContainer1.Panel1.Controls.Add(label13);
+            splitContainer1.Panel1.Controls.Add(button5);
+            splitContainer1.Panel1.Controls.Add(dateTimePicker5);
+            splitContainer1.Panel1.Controls.Add(button6);
+            splitContainer1.Panel1.Controls.Add(label15);
+            splitContainer1.Panel1.Controls.Add(dateTimePicker6);
+            splitContainer1.Panel1.Controls.Add(label17);
             splitContainer1.Panel1MinSize = 100;
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(dgvHistorial);
             splitContainer1.Panel2MinSize = 200;
-            splitContainer1.Size = new Size(863, 503);
+            splitContainer1.Size = new Size(883, 503);
             splitContainer1.SplitterDistance = 130;
             splitContainer1.TabIndex = 13;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(647, 74);
+            label19.Name = "label19";
+            label19.Size = new Size(92, 15);
+            label19.TabIndex = 18;
+            label19.Text = "N° Movimiento:";
+            // 
+            // cmbmovHistorial
+            // 
+            cmbmovHistorial.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbmovHistorial.FormattingEnabled = true;
+            cmbmovHistorial.Location = new Point(745, 66);
+            cmbmovHistorial.Name = "cmbmovHistorial";
+            cmbmovHistorial.Size = new Size(121, 23);
+            cmbmovHistorial.TabIndex = 17;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(645, 31);
+            label7.Location = new Point(678, 33);
             label7.Name = "label7";
             label7.Size = new Size(61, 15);
             label7.TabIndex = 15;
@@ -221,19 +257,10 @@
             // 
             cmbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProveedor.FormattingEnabled = true;
-            cmbProveedor.Location = new Point(712, 25);
+            cmbProveedor.Location = new Point(745, 25);
             cmbProveedor.Name = "cmbProveedor";
             cmbProveedor.Size = new Size(121, 23);
             cmbProveedor.TabIndex = 13;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(645, 31);
-            label8.Name = "label8";
-            label8.Size = new Size(44, 15);
-            label8.TabIndex = 16;
-            label8.Text = "Cliente";
             // 
             // button1
             // 
@@ -276,24 +303,6 @@
             label4.TabIndex = 2;
             label4.Text = "Desde";
             // 
-            // comboBox2
-            // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(317, 23);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 4;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(456, 31);
-            label3.Name = "label3";
-            label3.Size = new Size(44, 15);
-            label3.TabIndex = 7;
-            label3.Text = "Cliente";
-            // 
             // dateTimePicker2
             // 
             dateTimePicker2.CustomFormat = "";
@@ -304,15 +313,6 @@
             dateTimePicker2.TabIndex = 1;
             dateTimePicker2.Value = new DateTime(2025, 11, 24, 22, 24, 42, 0);
             // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(506, 23);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 5;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -322,21 +322,132 @@
             label5.TabIndex = 3;
             label5.Text = "Hasta";
             // 
-            // label6
+            // button3
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(254, 31);
-            label6.Name = "label6";
-            label6.Size = new Size(56, 15);
-            label6.TabIndex = 6;
-            label6.Text = "Producto";
+            button3.BackColor = Color.FromArgb(255, 128, 128);
+            button3.Location = new Point(444, 65);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 12;
+            button3.Text = "Limpiar";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += btnLimpiar_Click;
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.CustomFormat = "";
+            dateTimePicker3.Format = DateTimePickerFormat.Short;
+            dateTimePicker3.Location = new Point(102, 23);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new Size(111, 23);
+            dateTimePicker3.TabIndex = 0;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(0, 192, 0);
+            button4.ForeColor = Color.Black;
+            button4.Location = new Point(363, 65);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 8;
+            button4.Text = "Buscar";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += btnBuscar_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(57, 26);
+            label11.Name = "label11";
+            label11.Size = new Size(39, 15);
+            label11.TabIndex = 2;
+            label11.Text = "Desde";
+            // 
+            // dateTimePicker4
+            // 
+            dateTimePicker4.CustomFormat = "";
+            dateTimePicker4.Format = DateTimePickerFormat.Short;
+            dateTimePicker4.Location = new Point(102, 64);
+            dateTimePicker4.Name = "dateTimePicker4";
+            dateTimePicker4.Size = new Size(111, 23);
+            dateTimePicker4.TabIndex = 1;
+            dateTimePicker4.Value = new DateTime(2025, 11, 24, 22, 24, 42, 0);
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(59, 67);
+            label13.Name = "label13";
+            label13.Size = new Size(37, 15);
+            label13.TabIndex = 3;
+            label13.Text = "Hasta";
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.FromArgb(255, 128, 128);
+            button5.Location = new Point(444, 65);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 23);
+            button5.TabIndex = 12;
+            button5.Text = "Limpiar";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += btnLimpiar_Click;
+            // 
+            // dateTimePicker5
+            // 
+            dateTimePicker5.CustomFormat = "";
+            dateTimePicker5.Format = DateTimePickerFormat.Short;
+            dateTimePicker5.Location = new Point(102, 23);
+            dateTimePicker5.Name = "dateTimePicker5";
+            dateTimePicker5.Size = new Size(111, 23);
+            dateTimePicker5.TabIndex = 0;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.FromArgb(0, 192, 0);
+            button6.ForeColor = Color.Black;
+            button6.Location = new Point(363, 65);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 8;
+            button6.Text = "Buscar";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += btnBuscar_Click;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(57, 26);
+            label15.Name = "label15";
+            label15.Size = new Size(39, 15);
+            label15.TabIndex = 2;
+            label15.Text = "Desde";
+            // 
+            // dateTimePicker6
+            // 
+            dateTimePicker6.CustomFormat = "";
+            dateTimePicker6.Format = DateTimePickerFormat.Short;
+            dateTimePicker6.Location = new Point(102, 64);
+            dateTimePicker6.Name = "dateTimePicker6";
+            dateTimePicker6.Size = new Size(111, 23);
+            dateTimePicker6.TabIndex = 1;
+            dateTimePicker6.Value = new DateTime(2025, 11, 24, 22, 24, 42, 0);
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(59, 67);
+            label17.Name = "label17";
+            label17.Size = new Size(37, 15);
+            label17.TabIndex = 3;
+            label17.Text = "Hasta";
             // 
             // FrmHistorialStock
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AliceBlue;
-            ClientSize = new Size(863, 503);
+            ClientSize = new Size(883, 503);
             Controls.Add(splitContainer1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -370,14 +481,23 @@
         private DateTimePicker dateTimePicker1;
         private Button button2;
         private Label label4;
-        private ComboBox comboBox2;
-        private Label label3;
         private DateTimePicker dateTimePicker2;
-        private ComboBox comboBox1;
         private Label label5;
-        private Label label6;
         private Label label7;
         private ComboBox cmbProveedor;
-        private Label label8;
+        private Button button3;
+        private DateTimePicker dateTimePicker3;
+        private Button button4;
+        private Label label11;
+        private DateTimePicker dateTimePicker4;
+        private Label label13;
+        private Button button5;
+        private DateTimePicker dateTimePicker5;
+        private Button button6;
+        private Label label15;
+        private DateTimePicker dateTimePicker6;
+        private Label label17;
+        private ComboBox cmbmovHistorial;
+        protected Label label19;
     }
 }

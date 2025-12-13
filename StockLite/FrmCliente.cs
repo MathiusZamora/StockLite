@@ -26,7 +26,7 @@ namespace StockLite
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.ReadOnly = true;
             dgvClientes.AllowUserToAddRows = false;
-            dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
+            dgvClientes.SelectionChanged += OnClienteSeleccionado;
 
             dgvClientes.RowHeadersVisible = false;
             dgvClientes.RowHeadersWidth = 4;
@@ -90,7 +90,7 @@ namespace StockLite
 
         }
 
-        private void dgvClientes_SelectionChanged(object? sender, EventArgs e)
+        private void OnClienteSeleccionado(object? sender, EventArgs e)
         {
             if (dgvClientes.CurrentRow?.DataBoundItem is Cliente c)
             {

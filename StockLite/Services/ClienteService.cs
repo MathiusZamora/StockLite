@@ -51,18 +51,16 @@ namespace StockLite.Services
         {
             using var cn = new SqlConnection(CS);
             using var cmd = new SqlCommand("""
-                EXEC InsertarCliente 
-                @id = @id,
-                @nombre = @nombre,
-                @contacto = @contacto, 
-                @user = @user
-                """, cn);
-
+        EXEC ActualizarCliente
+        @id = @id,
+        @nombre = @nombre,
+        @contacto = @contacto,
+        @user = @user
+        """, cn);
+            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cmd.Parameters.Add("@nombre", SqlDbType.VarChar, 100).Value = nombre.Trim();
             cmd.Parameters.Add("@contacto", SqlDbType.VarChar, 100).Value = contacto?.Trim() ?? (object)DBNull.Value;
             cmd.Parameters.Add("@user", SqlDbType.Int).Value = UsuarioActualId > 0 ? UsuarioActualId : (object)DBNull.Value;
-            cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
-
             cn.Open();
             cmd.ExecuteNonQuery();
         }
@@ -70,7 +68,7 @@ namespace StockLite.Services
         public static void Delete(int id)
         {
             using var cn = new SqlConnection(CS);
-            using var cmd = new SqlCommand("EXEC AnularCategoria @id", cn);
+            using var cmd = new SqlCommand("EXEC AnularCliente @id", cn);
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
             cn.Open();
             cmd.ExecuteNonQuery();

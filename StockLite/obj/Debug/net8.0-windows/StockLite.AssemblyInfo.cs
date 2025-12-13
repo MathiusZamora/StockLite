@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StockLite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66db3523bc185d8fc4b465c685004ea810305fb8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f51b25a74e891ec1ee430ae13bfc4e7334769fe7")]
 [assembly: System.Reflection.AssemblyProductAttribute("StockLite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StockLite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

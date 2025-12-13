@@ -31,7 +31,6 @@
             panelSalida = new Panel();
             txt_NumeroRequiza = new TextBox();
             lblTituloSalida = new Label();
-            lblCliente = new Label();
             cmbCliente = new ComboBox();
             lblProductoS = new Label();
             cmbProductoSalida = new ComboBox();
@@ -42,6 +41,8 @@
             txtObsS = new TextBox();
             btnSalida = new Button();
             gridRequiza = new DataGridView();
+            lblCliente = new Label();
+            label1 = new Label();
             panelSalida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidadS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridRequiza).BeginInit();
@@ -51,6 +52,7 @@
             // 
             panelSalida.BackColor = Color.AliceBlue;
             panelSalida.BorderStyle = BorderStyle.FixedSingle;
+            panelSalida.Controls.Add(label1);
             panelSalida.Controls.Add(txt_NumeroRequiza);
             panelSalida.Controls.Add(lblTituloSalida);
             panelSalida.Controls.Add(lblCliente);
@@ -72,7 +74,7 @@
             // txt_NumeroRequiza
             // 
             txt_NumeroRequiza.Enabled = false;
-            txt_NumeroRequiza.Location = new Point(16, 50);
+            txt_NumeroRequiza.Location = new Point(16, 66);
             txt_NumeroRequiza.Name = "txt_NumeroRequiza";
             txt_NumeroRequiza.Size = new Size(399, 23);
             txt_NumeroRequiza.TabIndex = 12;
@@ -89,24 +91,13 @@
             lblTituloSalida.TabIndex = 0;
             lblTituloSalida.Text = "📤 SALIDA";
             // 
-            // lblCliente
-            // 
-            lblCliente.AutoSize = true;
-            lblCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCliente.ForeColor = Color.FromArgb(73, 80, 87);
-            lblCliente.Location = new Point(35, 87);
-            lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(89, 15);
-            lblCliente.TabIndex = 1;
-            lblCliente.Text = "Departamento";
-            // 
             // cmbCliente
             // 
             cmbCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCliente.Font = new Font("Segoe UI", 9F);
-            cmbCliente.Location = new Point(15, 105);
+            cmbCliente.Location = new Point(15, 121);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(400, 23);
             cmbCliente.TabIndex = 2;
@@ -116,7 +107,7 @@
             lblProductoS.AutoSize = true;
             lblProductoS.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblProductoS.ForeColor = Color.FromArgb(73, 80, 87);
-            lblProductoS.Location = new Point(35, 147);
+            lblProductoS.Location = new Point(35, 163);
             lblProductoS.Name = "lblProductoS";
             lblProductoS.Size = new Size(61, 15);
             lblProductoS.TabIndex = 3;
@@ -128,7 +119,7 @@
             cmbProductoSalida.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbProductoSalida.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProductoSalida.Font = new Font("Segoe UI", 9F);
-            cmbProductoSalida.Location = new Point(15, 165);
+            cmbProductoSalida.Location = new Point(15, 181);
             cmbProductoSalida.Name = "cmbProductoSalida";
             cmbProductoSalida.Size = new Size(340, 23);
             cmbProductoSalida.TabIndex = 4;
@@ -141,7 +132,7 @@
             btnVerTodosS.FlatStyle = FlatStyle.Flat;
             btnVerTodosS.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
             btnVerTodosS.ForeColor = Color.White;
-            btnVerTodosS.Location = new Point(365, 165);
+            btnVerTodosS.Location = new Point(365, 181);
             btnVerTodosS.Name = "btnVerTodosS";
             btnVerTodosS.Size = new Size(50, 28);
             btnVerTodosS.TabIndex = 5;
@@ -214,6 +205,28 @@
             gridRequiza.Size = new Size(249, 431);
             gridRequiza.TabIndex = 13;
             // 
+            // lblCliente
+            // 
+            lblCliente.AutoSize = true;
+            lblCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCliente.ForeColor = Color.FromArgb(73, 80, 87);
+            lblCliente.Location = new Point(35, 103);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new Size(92, 15);
+            lblCliente.TabIndex = 1;
+            lblCliente.Text = "Departamento:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.ForeColor = Color.FromArgb(73, 80, 87);
+            label1.Location = new Point(35, 48);
+            label1.Name = "label1";
+            label1.Size = new Size(53, 15);
+            label1.TabIndex = 13;
+            label1.Text = "Requisa:";
+            // 
             // FrmSalidaMovimientoStock
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -237,7 +250,6 @@
 
         private Panel panelSalida;
         private Label lblTituloSalida;
-        private Label lblCliente;
         private ComboBox cmbCliente;
         private Label lblProductoS;
         private ComboBox cmbProductoSalida;
@@ -249,5 +261,7 @@
         private Button btnSalida;
         private TextBox txt_NumeroRequiza;
         private DataGridView gridRequiza;
+        private Label label1;
+        private Label lblCliente;
     }
 }

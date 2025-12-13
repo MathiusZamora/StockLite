@@ -17,6 +17,7 @@ namespace StockLite.Models
         public string Proveedor { get; set; } = string.Empty; 
         public string Usuario { get; set; } = string.Empty;
         public string Observacion { get; set; } = string.Empty;
+        public int MovimientoId { get; set; }
     }
 
 }

@@ -1,6 +1,7 @@
 ﻿using StockLite.Models;
 using StockLite.Services;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -24,10 +25,9 @@ namespace StockLite
             CargarProductos();
             CargarClientes();
             CargarProveedores();
-
+            CargarMovHistorial();  
             dtpDesde.Value = DateTime.Today.AddDays(-30);
             dtpHasta.Value = DateTime.Today;
-
             CargarHistorial();
         }
 
@@ -40,18 +40,18 @@ namespace StockLite
             dgvHistorial.Dock = DockStyle.Fill;
             dgvHistorial.BackgroundColor = Color.White;
             dgvHistorial.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-
             dgvHistorial.Columns.Clear();
             dgvHistorial.Columns.AddRange(new DataGridViewColumn[]
             {
+                new DataGridViewTextBoxColumn { Name = "NumeroMovimiento", HeaderText = "N° Movimiento", DataPropertyName = "MovimientoId", Width = 120 },
                 new DataGridViewTextBoxColumn { Name = "Fecha", HeaderText = "Fecha", DataPropertyName = "Fecha", Width = 100, DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy" } },
                 new DataGridViewTextBoxColumn { Name = "Hora", HeaderText = "Hora", DataPropertyName = "Fecha", Width = 80, DefaultCellStyle = new DataGridViewCellStyle { Format = "HH:mm" } },
                 new DataGridViewTextBoxColumn { Name = "Tipo", HeaderText = "Tipo", DataPropertyName = "Tipo", Width = 90 },
                 new DataGridViewTextBoxColumn { Name = "Codigo", HeaderText = "Código", DataPropertyName = "Codigo", Width = 100 },
                 new DataGridViewTextBoxColumn { Name = "Producto", HeaderText = "Producto", DataPropertyName = "Producto", Width = 150 },
                 new DataGridViewTextBoxColumn { Name = "Proveedor", HeaderText = "Proveedor", DataPropertyName = "Proveedor", Width = 150 },
-                new DataGridViewTextBoxColumn { Name = "Cantidad", HeaderText = "Stock", DataPropertyName = "Cantidad", Width = 80, DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleRight } },
-                new DataGridViewTextBoxColumn { Name = "Cliente", HeaderText = "Cliente", DataPropertyName = "Cliente", Width = 150 },
+                new DataGridViewTextBoxColumn { Name = "Cantidad", HeaderText = "Cantidad", DataPropertyName = "Cantidad", Width = 80, DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleRight } },
+                new DataGridViewTextBoxColumn { Name = "Cliente", HeaderText = "Departamento", DataPropertyName = "Cliente", Width = 150 },
                 new DataGridViewTextBoxColumn { Name = "Usuario", HeaderText = "Usuario", DataPropertyName = "Usuario", Width = 100 },
                 new DataGridViewTextBoxColumn { Name = "Observacion", HeaderText = "Observación", DataPropertyName = "Observacion", Width = 250 }
             });
@@ -60,9 +60,7 @@ namespace StockLite
             {
                 if (e.RowIndex < 0) return;
                 if (dgvHistorial.Columns[e.ColumnIndex].Name != "Tipo") return;
-
                 var valorCelda = dgvHistorial.Rows[e.RowIndex].Cells["Tipo"].Value;
-
                 if (valorCelda is string tipo && !string.IsNullOrEmpty(tipo))
                 {
                     if (tipo.Equals("ENTRADA", StringComparison.OrdinalIgnoreCase))
@@ -76,20 +74,17 @@ namespace StockLite
                         e.CellStyle!.Font = new Font(dgvHistorial.Font, FontStyle.Bold);
                     }
                 }
-
                 e.FormattingApplied = true;
             };
 
             dgvHistorial.RowHeadersVisible = false;
             dgvHistorial.RowHeadersWidth = 4;
-            //dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void CargarProductos()
         {
             var lista = new List<Producto> { new Producto { ProductoId = 0, Codigo = "", Nombre = "[Todos los productos]" } };
             lista.AddRange(ProductoService.GetAll().OrderBy(p => p.Codigo));
-
             cmbProducto.DataSource = lista;
             cmbProducto.DisplayMember = "CodigoNombre";
             cmbProducto.ValueMember = "ProductoId";
@@ -100,7 +95,6 @@ namespace StockLite
         {
             var lista = new List<Cliente> { new Cliente { ClienteId = 0, Nombre = "[Todos los clientes]" } };
             lista.AddRange(ClienteService.GetAll().OrderBy(c => c.Nombre));
-
             cmbCliente.DataSource = lista;
             cmbCliente.DisplayMember = "Nombre";
             cmbCliente.ValueMember = "ClienteId";
@@ -111,11 +105,24 @@ namespace StockLite
         {
             var lista = new List<Proveedor> { new Proveedor { ProveedorId = 0, Nombre = "[Todos los proveedores]" } };
             lista.AddRange(ProveedorService.GetAll().OrderBy(p => p.Nombre));
-
             cmbProveedor.DataSource = lista;
             cmbProveedor.DisplayMember = "Nombre";
             cmbProveedor.ValueMember = "ProveedorId";
             cmbProveedor.SelectedIndex = 0;
+        }
+
+        private void CargarMovHistorial()
+        {
+            var lista = new List<int> { 0 };  
+
+            var requizas = MovimientoStockService.GetMovimientosIds();
+            foreach (var r in requizas)
+            {
+                lista.Add(r.MovimientoId);
+            }
+
+            cmbmovHistorial.DataSource = lista;
+            cmbmovHistorial.SelectedIndex = 0;
         }
 
         private void CargarHistorial()
@@ -126,8 +133,9 @@ namespace StockLite
             int? productoId = cmbProducto.SelectedValue is int id && id > 0 ? id : null;
             int? clienteId = cmbCliente.SelectedValue is int cid && cid > 0 ? cid : null;
             int? proveedorId = cmbProveedor.SelectedValue is int pid && pid > 0 ? pid : null;
+            int? movHistorialId = cmbmovHistorial.SelectedValue is int req && req > 0 ? req : null;
 
-            var movimientos = MovimientoStockService.GetHistorial(desde, hasta, productoId, clienteId, proveedorId);
+            var movimientos = MovimientoStockService.GetHistorial(desde, hasta, productoId, clienteId, proveedorId, movHistorialId);
             dgvHistorial.DataSource = null;
             dgvHistorial.DataSource = movimientos;
         }
@@ -141,11 +149,10 @@ namespace StockLite
         {
             dtpDesde.Value = DateTime.Today.AddDays(-30);
             dtpHasta.Value = DateTime.Today;
-
             if (cmbProducto.Items.Count > 0) cmbProducto.SelectedIndex = 0;
             if (cmbCliente.Items.Count > 0) cmbCliente.SelectedIndex = 0;
             if (cmbProveedor.Items.Count > 0) cmbProveedor.SelectedIndex = 0;
-
+            cmbmovHistorial.SelectedIndex = 0;
             CargarHistorial();
         }
     }

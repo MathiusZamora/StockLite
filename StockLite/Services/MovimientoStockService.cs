@@ -221,7 +221,7 @@ namespace StockLite.Services
 
         }
 
-        public static List<HistorialView> GetHistorial(DateTime desde, DateTime hasta, int? productoId, int? clienteId, int? proveedorId)
+        public static List<HistorialView> GetHistorial(DateTime desde, DateTime hasta, int? productoId, int? clienteId, int? proveedorId, int? movHistorialId)
         {
             var lista = new List<HistorialView>();
 
@@ -232,8 +232,8 @@ namespace StockLite.Services
             @hasta = @hasta,
             @productoId = @productoId,
             @clienteId = @clienteId,
-            @proveedorId = @proveedorId
-
+            @proveedorId = @proveedorId,
+            @movHistorialId = @movHistorialId
             ";
 
             using var cn = new SqlConnection(CS);
@@ -244,12 +244,14 @@ namespace StockLite.Services
             cmd.Parameters.AddWithValue("@productoId", productoId ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("@clienteId", clienteId ?? (object)DBNull.Value);
             cmd.Parameters.AddWithValue("@proveedorId", proveedorId ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@movHistorialId", movHistorialId ?? (object)DBNull.Value);  
 
             using var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 lista.Add(new HistorialView
                 {
+                    MovimientoId = dr.GetInt32("MovimientoId"), 
                     Fecha = dr.GetDateTime("Fecha"),
                     Tipo = dr.GetString("Tipo"),
                     Codigo = dr.GetString("Codigo"),
@@ -264,6 +266,23 @@ namespace StockLite.Services
 
             return lista;
         }
+
+        public static List<dynamic> GetMovimientosIds()
+        {
+            var lista = new List<dynamic>();
+            const string sql = "SELECT DISTINCT MovimientoId FROM MovimientoStock ORDER BY MovimientoId DESC";
+
+            using var cn = new SqlConnection(CS);
+            cn.Open();
+            using var cmd = new SqlCommand(sql, cn);
+            using var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lista.Add(new { MovimientoId = dr.GetInt32(0) });
+            }
+            return lista;
+        }
+
 
     }
 }

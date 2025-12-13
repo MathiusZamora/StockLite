@@ -42,6 +42,7 @@
             txtObsE = new TextBox();
             btnEntrada = new Button();
             gridRequiza = new DataGridView();
+            label1 = new Label();
             panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidadE).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridRequiza).BeginInit();
@@ -51,6 +52,7 @@
             // 
             panelEntrada.BackColor = Color.AliceBlue;
             panelEntrada.BorderStyle = BorderStyle.FixedSingle;
+            panelEntrada.Controls.Add(label1);
             panelEntrada.Controls.Add(txt_NumeroRequiza);
             panelEntrada.Controls.Add(lblTituloEntrada);
             panelEntrada.Controls.Add(lblProveedor);
@@ -72,7 +74,7 @@
             // txt_NumeroRequiza
             // 
             txt_NumeroRequiza.Enabled = false;
-            txt_NumeroRequiza.Location = new Point(15, 52);
+            txt_NumeroRequiza.Location = new Point(15, 70);
             txt_NumeroRequiza.Name = "txt_NumeroRequiza";
             txt_NumeroRequiza.Size = new Size(399, 23);
             txt_NumeroRequiza.TabIndex = 11;
@@ -94,7 +96,7 @@
             lblProveedor.AutoSize = true;
             lblProveedor.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblProveedor.ForeColor = Color.FromArgb(73, 80, 87);
-            lblProveedor.Location = new Point(35, 93);
+            lblProveedor.Location = new Point(35, 100);
             lblProveedor.Name = "lblProveedor";
             lblProveedor.Size = new Size(69, 15);
             lblProveedor.TabIndex = 1;
@@ -106,7 +108,7 @@
             cmbProveedor.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbProveedor.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProveedor.Font = new Font("Segoe UI", 9F);
-            cmbProveedor.Location = new Point(15, 121);
+            cmbProveedor.Location = new Point(15, 128);
             cmbProveedor.Name = "cmbProveedor";
             cmbProveedor.Size = new Size(400, 23);
             cmbProveedor.TabIndex = 2;
@@ -116,7 +118,7 @@
             lblProductoE.AutoSize = true;
             lblProductoE.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblProductoE.ForeColor = Color.FromArgb(73, 80, 87);
-            lblProductoE.Location = new Point(32, 163);
+            lblProductoE.Location = new Point(32, 166);
             lblProductoE.Name = "lblProductoE";
             lblProductoE.Size = new Size(61, 15);
             lblProductoE.TabIndex = 3;
@@ -128,7 +130,7 @@
             cmbProductoEntrada.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbProductoEntrada.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProductoEntrada.Font = new Font("Segoe UI", 9F);
-            cmbProductoEntrada.Location = new Point(15, 181);
+            cmbProductoEntrada.Location = new Point(15, 184);
             cmbProductoEntrada.Name = "cmbProductoEntrada";
             cmbProductoEntrada.Size = new Size(340, 23);
             cmbProductoEntrada.TabIndex = 4;
@@ -141,7 +143,7 @@
             btnVerTodosE.FlatStyle = FlatStyle.Flat;
             btnVerTodosE.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
             btnVerTodosE.ForeColor = Color.White;
-            btnVerTodosE.Location = new Point(365, 176);
+            btnVerTodosE.Location = new Point(365, 179);
             btnVerTodosE.Name = "btnVerTodosE";
             btnVerTodosE.Size = new Size(50, 28);
             btnVerTodosE.TabIndex = 5;
@@ -214,6 +216,17 @@
             gridRequiza.Size = new Size(249, 439);
             gridRequiza.TabIndex = 3;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.ForeColor = Color.FromArgb(73, 80, 87);
+            label1.Location = new Point(35, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(56, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Requisa: ";
+            // 
             // FrmEntradaMovimientoStock
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -249,5 +262,6 @@
         private Button btnEntrada;
         private DataGridView gridRequiza;
         private TextBox txt_NumeroRequiza;
+        private Label label1;
     }
 }
