@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             panelSalida = new Panel();
+            label1 = new Label();
             txt_NumeroRequiza = new TextBox();
             lblTituloSalida = new Label();
+            lblCliente = new Label();
             cmbCliente = new ComboBox();
             lblProductoS = new Label();
             cmbProductoSalida = new ComboBox();
@@ -41,8 +43,6 @@
             txtObsS = new TextBox();
             btnSalida = new Button();
             gridRequiza = new DataGridView();
-            lblCliente = new Label();
-            label1 = new Label();
             panelSalida.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidadS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridRequiza).BeginInit();
@@ -71,6 +71,17 @@
             panelSalida.Size = new Size(440, 431);
             panelSalida.TabIndex = 3;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.ForeColor = Color.FromArgb(73, 80, 87);
+            label1.Location = new Point(35, 48);
+            label1.Name = "label1";
+            label1.Size = new Size(78, 15);
+            label1.TabIndex = 13;
+            label1.Text = "Movimiento:";
+            // 
             // txt_NumeroRequiza
             // 
             txt_NumeroRequiza.Enabled = false;
@@ -90,6 +101,17 @@
             lblTituloSalida.Size = new Size(126, 30);
             lblTituloSalida.TabIndex = 0;
             lblTituloSalida.Text = "📤 SALIDA";
+            // 
+            // lblCliente
+            // 
+            lblCliente.AutoSize = true;
+            lblCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCliente.ForeColor = Color.FromArgb(73, 80, 87);
+            lblCliente.Location = new Point(35, 103);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new Size(92, 15);
+            lblCliente.TabIndex = 1;
+            lblCliente.Text = "Departamento:";
             // 
             // cmbCliente
             // 
@@ -204,28 +226,6 @@
             gridRequiza.Name = "gridRequiza";
             gridRequiza.Size = new Size(249, 431);
             gridRequiza.TabIndex = 13;
-            // 
-            // lblCliente
-            // 
-            lblCliente.AutoSize = true;
-            lblCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCliente.ForeColor = Color.FromArgb(73, 80, 87);
-            lblCliente.Location = new Point(35, 103);
-            lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(92, 15);
-            lblCliente.TabIndex = 1;
-            lblCliente.Text = "Departamento:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.ForeColor = Color.FromArgb(73, 80, 87);
-            label1.Location = new Point(35, 48);
-            label1.Name = "label1";
-            label1.Size = new Size(53, 15);
-            label1.TabIndex = 13;
-            label1.Text = "Requisa:";
             // 
             // FrmSalidaMovimientoStock
             // 

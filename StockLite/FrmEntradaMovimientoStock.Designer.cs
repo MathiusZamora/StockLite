@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelEntrada = new Panel();
+            label1 = new Label();
             txt_NumeroRequiza = new TextBox();
             lblTituloEntrada = new Label();
             lblProveedor = new Label();
@@ -42,7 +43,6 @@
             txtObsE = new TextBox();
             btnEntrada = new Button();
             gridRequiza = new DataGridView();
-            label1 = new Label();
             panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCantidadE).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridRequiza).BeginInit();
@@ -70,6 +70,17 @@
             panelEntrada.Padding = new Padding(20);
             panelEntrada.Size = new Size(440, 439);
             panelEntrada.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.ForeColor = Color.FromArgb(73, 80, 87);
+            label1.Location = new Point(35, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(78, 15);
+            label1.TabIndex = 12;
+            label1.Text = "Movimiento:";
             // 
             // txt_NumeroRequiza
             // 
@@ -215,17 +226,6 @@
             gridRequiza.Name = "gridRequiza";
             gridRequiza.Size = new Size(249, 439);
             gridRequiza.TabIndex = 3;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.ForeColor = Color.FromArgb(73, 80, 87);
-            label1.Location = new Point(35, 52);
-            label1.Name = "label1";
-            label1.Size = new Size(56, 15);
-            label1.TabIndex = 12;
-            label1.Text = "Requisa: ";
             // 
             // FrmEntradaMovimientoStock
             // 

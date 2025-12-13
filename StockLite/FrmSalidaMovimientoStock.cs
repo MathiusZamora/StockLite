@@ -44,7 +44,7 @@ namespace StockLite
             cmbCliente.DataSource = lista;
             cmbCliente.DisplayMember = "Nombre";
             cmbCliente.ValueMember = "ClienteId";
-            cmbCliente.SelectedIndex = 0; // "Sin cliente" por defecto
+            cmbCliente.SelectedIndex = 0; 
         }
         private void CargarGrid()
         {
